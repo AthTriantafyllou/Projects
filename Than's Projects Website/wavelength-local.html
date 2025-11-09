@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wavelength — Local</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <!-- exit button upper left -->
+  <button class="exit-btn" onclick="window.location.href='../games/game1.html'">EXIT</button>
+
+  <main class="wavelength">
+    <!-- category row -->
+    <div class="category-row">
+      <span id="catLeft">CATEGORY NAME 1</span>
+      <strong>CATEGORY</strong>
+      <span id="catRight">CATEGORY NAME 2</span>
+    </div>
+
+    <!-- point zone (upper white zone) with blue blocker -->
+    <div class="zone-wrap">
+      <!-- Fixed white background -->
+         <div class="zone-bg">
+         <!-- Moving colored bars -->
+            <div class="zone-bars" id="zoneBars">
+             <div class="bar bar-2">2</div>
+             <div class="bar bar-3">3</div>
+             <div class="bar bar-4">4</div>
+             <div class="bar bar-3">3</div>
+             <div class="bar bar-2">2</div>
+             </div>
+         </div>
+        <!-- Blue blocker overlay -->
+      <div class="blocker" id="blocker"></div>
+    </div>
+
+
+    <!-- meter 0–100 with red pointer (range input) -->
+    <div class="meter">
+      <div class="meter-labels">
+        <span>0</span><span>100</span>
+      </div>
+      <input id="guessRange" type="range" min="0" max="100" value="50"/>
+    </div>
+
+    <!-- total points for now 0 -->
+    <div class="score">0</div>
+
+    <!-- control panel -->
+    <section class="panels">
+      <div class="panel hinter">
+        <h3>HINTER</h3>
+        <button id="btnNewCat">NEW CATEGORY</button>
+        <button id="btnRandom">RANDOM GOAL</button>
+        <button id="btnToggle">SHOW/HIDE</button>
+      </div>
+
+      <div class="panel guesser">
+        <h3>GUESSER</h3>
+        <button id="btnSubmit">SUBMIT</button>
+      </div>
+    </section>
+
+    <button class="reset" id="btnReset">RESET</button>
+  </main>
+
+  <script src="../js/wavelength.js"></script>
+</body>
+</html>
