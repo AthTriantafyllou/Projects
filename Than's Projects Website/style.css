@@ -591,3 +591,32 @@ input[type="range"]::-moz-range-thumb{
   font-size: 24px;
   cursor: pointer;
 }
+
+
+
+
+/*Explanation styiling for the coding page*/
+.info-page {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.project-explanation {
+  margin-top: 40px;
+}
+
+.project-explanation h3 {
+  color: #4b6ef5;
+  margin-bottom: 10px;
+}
+
+.project-explanation ul {
+  list-style: disc;
+  margin-left: 20px;
+  color: #333;
+}
