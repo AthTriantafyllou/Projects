@@ -1,0 +1,28 @@
+/* -------- Responsive layout -------- */
+
+@media (max-width: 900px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .vertical-divider {
+    width: 100%;
+    height: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .games-grid.two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .project-text {
+    min-width: 100%;
+  }
+}
