@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Login</title>
+
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/login.css" />
+
+  <script type="module" src="/streaks/assets/js/login.js"></script>
+
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes"> 
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="YourApp">-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+<link rel="manifest" href="/streaks/manifest.json">
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-card">
+
+      <!-- LEFT: SIGN IN -->
+      <div class="auth-left">
+        <h1>Sign In</h1>
+
+        <p class="auth-subtitle">
+          Welcome back!<br />
+          Sign in with your Email & Password
+        </p>
+
+        <form id="login-form" class="auth-form">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter E-mail"
+            required
+          />
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+
+          <a href="#" class="auth-forgot">Forgot Password?</a>
+
+          <button type="submit" class="auth-primary-btn">
+            SIGN IN
+          </button>
+
+          <a href="/streaks/pages/register.html" class="auth-mobile-link">
+            Do not have an account? Register now
+          </a>
+        </form>
+      </div>
+
+      <!-- RIGHT: REGISTER CTA -->
+      <div class="auth-right">
+        <h2>Hello there!</h2>
+
+        <p>
+          Register now and build a habit with us
+        </p>
+
+        <a
+          href="/streaks/pages/register.html"
+          class="auth-outline-btn"
+        >
+          SIGN UP
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="/streaks/assets/js/main.js"></script>
+
+</body>
+</html>

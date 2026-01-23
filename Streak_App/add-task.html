@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Task</title>
+
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/app.css" />
+
+  <script type="module" src="/streaks/assets/js/add-task.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="YourApp">
+<meta name="theme-color" content="#dddddd">
+
+<link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+<link rel="manifest" href="/streaks/manifest.json">
+</head>
+<body>
+
+  <div class="app-bg">
+    <div class="app-frame">
+
+      <main class="app-content add-task-page">
+
+        <h1 class="app-title center">Add task</h1>
+        <hr class="page-divider" />
+
+        <div class="form-group">
+          <label for="task-title" class="form-label">Task Name:</label>
+          <input
+            type="text"
+            id="task-title"
+            class="form-input"
+            placeholder="Placeholder"
+          />
+        </div>
+
+        <div id="error" class="activity-error" style="display:none;"></div>
+
+        <!-- Bottom actions -->
+        <div class="add-task-bottom">
+          <button id="save-btn" class="settings-btn glass glass-green full">
+            Save
+          </button>
+
+          <button id="cancel-btn" class="settings-btn glass glass-orange full">
+            Cancel
+          </button>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="/streaks/assets/js/main.js"></script>
+
+</body>
+
+</html>

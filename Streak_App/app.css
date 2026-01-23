@@ -1,0 +1,1217 @@
+
+
+
+/* ============================= */
+/* NAV GLASS BUTTONS */
+/* ============================= */
+
+.nav-btn {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgb(207 207 207 / 31%) 0%,
+    rgb(183 183 183 / 37%) 40%,
+    rgb(55 54 54 / 35%) 100%
+  );
+
+
+  box-shadow:
+    -2px 5px 0px rgb(66 64 64 / 96%),
+    inset 2px -8px 8px rgb(83 83 83 / 35%);
+
+  
+  color: rgb(12 12 12 / 85%);
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nav-btn:active {
+  transform: scale(0.92);
+}
+
+
+
+
+/* ============================= */
+/* GLASS SYSTEM */
+/* ============================= */
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgb(235 138 138 / 12%) 0%,
+    rgb(238 134 134 / 4%) 40%,
+    rgb(33 33 33 / 35%) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 22px;
+  box-shadow:
+    -2px 5px 0px rgb(60 55 55 / 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+}
+
+
+.glass-dark {
+  background: linear-gradient(
+    180deg,
+    rgb(215 215 215 / 73%) 0%,
+    rgb(32 31 31 / 58%) 100%
+  );
+}
+
+.glass-dark-2 {
+  background: linear-gradient(
+    180deg,
+    rgba(88, 88, 88, 0.73) 0%,
+    rgb(32 31 31 / 58%) 100%
+  );
+}
+
+.glass-dark-3 {
+  background: linear-gradient(
+    180deg,
+    rgba(88, 88, 88, 0.73) 0%,
+    rgb(32 31 31 / 58%) 100%
+  );
+  box-shadow:
+    -2px 4px 3px rgb(60 55 55 / 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+}
+
+
+
+.glass-orange {
+  background: linear-gradient(
+    180deg,
+    rgb(255 182 62 / 86%) 0%,
+    rgb(243 153 24 / 96%) 100%
+  );
+}
+
+.glass-orange-bright {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 163, 64, 0.881) 0%,
+    rgba(249, 148, 17, 0.884) 100%
+  );
+}
+
+.glass-blue {
+  background: linear-gradient(
+    180deg,
+    rgb(63 203 255 / 79%) 0%,
+    rgb(24 198 255 / 89%) 100%
+  );
+}
+
+.glass-purple {
+  background: linear-gradient(
+    180deg,
+    rgba(193, 39, 240, 0.45) 0%,
+    rgba(178, 97, 240, 0.35) 100%
+  );
+  border-color: rgba(171, 36, 249, 0.7);
+}
+
+
+.glass-danger {
+  background: linear-gradient(
+    180deg,
+    rgb(234 46 46 / 84%) 0%,
+    rgb(76 16 10 / 70%) 100%
+  );
+  border-color: rgb(223 62 47 / 86%);
+}
+
+.glass-green {
+  background: linear-gradient(
+    180deg,
+    rgb(45 235 105 / 82%) 0%,
+    rgba(0, 130, 41, 0.939) 100%
+  );
+}
+
+
+
+
+
+/* to be safe with the background */
+body {
+  margin: 0;
+  background: radial-gradient(
+    1200px 800px at 50% -200px,
+    #1b1b1f 0%,
+    #0f0f12 45%,
+    #0a0a0d 100%
+  );
+  color: #fff;
+}
+
+
+/* App background (desktop viewer) */
+.app-bg {
+  min-height: 100vh;
+  background: #cfcfcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.app-frame {
+  width: 390px;
+  height: 820px;
+  max-height: 92vh;
+
+  background: #dddddd 100%;
+
+  border-radius: 38px;
+  border: 1px solid rgb(234 232 249);
+
+  box-shadow:
+    0 40px 120px rgb(7 7 8 / 60%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Main content */
+.app-content {
+  flex: 1;
+  padding: 20px 18px 24px;
+  overflow-y: auto;
+  position: relative;
+  background: transparent;
+}
+
+
+
+
+
+
+/* Title */
+.app-title {
+  margin: 12px 0 18px;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  color: rgb(30 30 30 / 72%);
+  letter-spacing: 0.2px;
+
+  
+}
+
+
+/* Items bar (dynamic) */
+.items-bar {
+  /*background: var(--primary);*/
+  color: #fff;
+  border-radius: 18px;
+  padding: 10px 14px;
+  font-weight: 800;
+  font-size: 13px;
+
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  margin-bottom: 16px;
+}
+
+/* Activities list */
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Activity cards (your JS adds class="activity-card") */
+.activity-card {
+  padding: 16px 18px;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.activity-card:active {
+  transform: scale(0.97);
+}
+
+
+
+/* Name & streak */
+.activity-name {
+  font-weight: 900;
+  font-size: 16px;
+  color: #fff;
+}
+
+.activity-streak {
+  font-weight: 900;
+  font-size: 16px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add activity button like mockup */
+.add-activity-btn {
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 22px;
+  /*border: 1px solid rgb(127 94 94 / 0%);*/
+  padding: 16px 18px;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-activity-btn:active {
+  transform: scale(0.97);
+}
+
+
+.add-activity-btn .plus {
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+
+/* Bottom nav */
+.bottom-nav {
+  padding: 14px 0 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-nav-inner {
+  background: transparent;
+  padding: 0;
+  gap: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 330px;
+}
+
+
+
+
+.nav-icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.form-input,
+.task-pill,
+.action-btn,
+.store-card,
+.add-activity-btn,
+.nav-btn {
+  border: 0 !important;
+  outline: 0 !important;
+  filter: none !important;
+}
+
+
+
+
+
+
+
+
+/* --------- Mobile: full-screen app (no frame) --------- */
+@media (max-width: 768px) {
+  .app-bg {
+    background: transparent;
+    padding: 0;
+  }
+
+  .app-frame {
+    width: 100%;
+    height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .app-content {
+    padding: 16px;
+  }
+}
+
+
+/*line seperator*/
+.activities-divider {
+  border: none;
+  height: 2px;
+  background: rgb(78 78 78 / 90%);
+  border-radius: 2px;
+  margin: 16px 0;
+}
+
+
+
+
+
+
+
+
+
+/* ADDITIONAL CSS FOR PRESETS */
+
+/* Centered title variant */
+.app-title.center {
+  text-align: center;
+}
+
+/* Page divider under title */
+.page-divider {
+  border: none;
+  height: 2px;
+  background: rgba(37, 37, 37, 0.35);
+  border-radius: 2px;
+  margin: 20px 0 20px;
+}
+
+/* Coming soon message */
+.coming-soon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(8, 8, 8, 0.75);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+
+
+
+/* -------- SETTINGS PAGE -------- */
+
+.settings-row {
+  padding: 8px 18px;
+  border-radius: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+
+.settings-label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.65;
+  color: #434343
+}
+
+.settings-value {
+  font-size: 16px;
+  font-weight: 800;
+  word-break: break-all;
+  color: #434343
+}
+
+
+/* Buttons container */
+.settings-actions {
+  margin-top: auto; /* 🔥 THIS is the key */
+  padding: 8px 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Base button */
+.settings-btn {
+  width: 100%;
+  border: none;
+  border-radius: 22px;
+
+  padding: 16px 18px;
+  font-size: 15px;
+  font-weight: 900;
+
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.settings-btn:active {
+  transform: scale(0.97);
+}
+
+
+
+/* Error message */
+.settings-error {
+  margin-top: 16px;
+  color: #ffb4b4;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* -------- ITEMS PAGE -------- */
+
+/* Owned items section */
+.items-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-card {
+  border-radius: 22px;
+  padding: 16px 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 900;
+  color: #fff;
+}
+
+
+.items-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* 🔥 perfect spacing */
+}
+
+
+.item-name {
+  font-size: 15px;
+}
+
+.item-count {
+  font-size: 15px;
+
+  display: flex;              /* 🔥 key */
+  align-items: center;        /* vertical centering */
+  gap: 6px;                   /* space between icon & number */
+}
+
+
+/* Section title */
+.section-title {
+  margin: 18px 0 12px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #434343;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+/* Store */
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.store-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 18px;         /* ✅ move padding here */
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgb(161 214 249 / 21%),
+    rgba(0,0,0,0.45)
+  );
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    -2px 5px 0px rgb(60 55 55),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.store-card:active {
+  transform: scale(0.97);
+}
+
+
+
+
+
+.store-left,
+.store-right {
+  padding: 0;
+  font-weight: 500;
+  font-size: 15px;
+  color: #fff;
+}
+
+.store-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+.store-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffe420;
+}
+.store-price {
+  letter-spacing: 0.4px;
+}
+
+
+
+
+.store-item-icon {
+  position: relative;
+  width: 46px;
+  height: 46px;
+}
+
+.store-item-icon svg,
+.store-item-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* shadow under icon */
+.store-item-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 8px;
+  background: rgba(0,0,0,0.6);
+  filter: blur(6px);
+  border-radius: 50%;
+}
+
+.store-item-name {
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+}
+
+
+
+
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.item-box {
+  border-radius: 22px;
+  padding: 16px 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  font-weight: 900;
+}
+
+.item-icon svg {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 10px;
+}
+
+.item-title {
+  font-size: 13px;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  margin: 10px 0px 0px 0px;
+}
+
+.item-separator {
+  width: 60%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 2px;
+  margin: 8px 0;
+}
+
+.item-value {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+
+
+
+
+
+/* ============================= */
+/* ACTIVITY PAGE */
+/* ============================= */
+
+.activity-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0; 
+}
+
+/* Header */
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Title should take all available space */
+.activity-title {
+  flex: 1;
+  font-size: 26px;
+  font-weight: 900;
+  color: #434343;
+  line-height: 1.1;
+  
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.icon-btn.danger {
+  color: #e15b4f;
+}
+
+/* Big streak */
+.activity-streak-big {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #434343;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Tasks list */
+.tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+
+.activity-bottom {
+
+  display: flex;              /* ✅ ADD */
+  flex-direction: column; 
+  gap: 12px;
+
+  padding: 14px 0 18px;
+  margin-top: auto;
+
+}
+
+
+
+
+
+
+/* Actions */
+.activity-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.action-btn {
+  border-radius: 18px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-btn.gray {
+  background: #bdbdbd;
+}
+
+.action-btn.blue {
+  background: #6ec1f2;
+}
+
+.action-btn.green {
+  background: #7fdc7a;
+}
+
+.action-btn.orange {
+  background: #f0a13a;
+}
+
+.action-btn.full {
+  width: 100%;
+}
+
+/* Error */
+.activity-error {
+  color: #ffb4b4;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+
+.tasks-list label {
+  background: #cfcfcf;
+  border-radius: 18px;
+  padding: 12px 14px;
+
+  font-weight: 900;
+  font-size: 14px;
+  color: #fff;
+
+  display: block;
+}
+
+
+.task-delete-btn:disabled::after {
+  opacity: 0.3;
+}
+
+.task-delete-btn:disabled {
+  cursor: not-allowed;
+}
+
+
+
+
+/* ============================= */
+/* CREATE ACTIVITY PAGE */
+/* ============================= */
+
+.create-activity-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(40, 40, 40, 0.735);
+}
+
+
+/* Input pill */
+.form-input {
+  background: linear-gradient(
+    180deg,
+    rgba(137, 137, 137, 0.73) 0%,
+    rgb(32 31 31 / 58%) 100%
+  );
+
+  border-radius: 22px;
+
+  padding: 16px 18px;
+
+  box-shadow:
+    -2px 4px 3px rgb(60 55 55 / 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+
+  outline: none;
+}
+
+
+/* Placeholder */
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+
+
+
+/* Bottom actions */
+.create-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+
+
+/* ============================= */
+/* ADD TASK PAGE */
+/* ============================= */
+
+.add-task-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Bottom buttons pinned */
+.add-task-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+
+
+/* ============================= */
+/* trash icons */
+/* ============================= */
+
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-btn:active {
+  transform: scale(0.9);
+}
+
+
+
+
+
+
+
+/* =====================
+   Tasks – Glass Pills
+   ===================== */
+
+.tasks-glass-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-row-activity {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2px 4px 2px 4px; /* ⬅️ IMPORTANT */
+  border-radius: 22px;
+
+}
+
+
+.task-pill {
+  width: 100%;
+  padding: 6px 12px;          /* slimmer */
+  border-radius: 12px;         /* less bubble, more pill */
+  font-size: 14px;             /* more elegant */
+  min-height: 48px;  
+  border: 2px solid rgba(255,255,255,0.18);
+  background: linear-gradient(180deg, rgb(139 139 139 / 12%), rgb(0 0 0 / 35%));
+  box-shadow:
+    -2px 3px 0px rgb(60, 55, 55, 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+  color: #fff;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.2;   
+}
+
+.task-pill:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+/* completed state */
+.task-row-activity.is-completed-orange .task-pill {
+  background: linear-gradient(
+    180deg,
+    rgba(51, 243, 111, 0.88),
+    rgba(0, 187, 62)
+  );
+}
+
+/* delete bubble */
+.task-delete-bubble {
+  position: absolute;
+  right: 14px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,180,180,0.35);
+  background: linear-gradient(180deg, rgba(255,80,80,0.65), rgba(90,0,0,0.55));
+  color: #fff;
+  font-weight: 900;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.task-row-activity.show-delete .task-delete-bubble {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+
+
+/* ============================= */
+/* CREATE ACTIVITY – TASK ROWS */
+/* ============================= */
+
+
+.task-row {
+  position: relative;   /* ✅ needed for .task-remove absolute positioning */
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 14px;   /* (optional) makes it feel “full sized” */
+  border-radius: 22px;
+}
+
+
+.task-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+
+  outline: none;
+}
+
+
+.task-input::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.2px;
+}
+
+
+
+
+.create-tasks-list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;     /* ✅ make rows fill container width */
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+
+  gap: 12px;                /* ✅ spacing between rows (also fixes problem #3) */
+}
+
+/* ensure each injected li takes full width */
+.create-tasks-list .task-row {
+  width: 100%;
+}
+
+
+.task-remove {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+
+
+.task-remove-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+
+/* keep the vertical centering AND scale on press */
+.task-remove:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+/*icons------------*/
+
+.app-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
+
+
+.app-icon.sm { width: 28px; height: 28px; }
+.app-icon.md { width: 42px; height: 42px; }
+.app-icon.lg { width: 56px; height: 56px; }
+
+/*shadow*/
+.icon-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.icon-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 8px;
+  background: rgb(97 97 97 / 59%);
+  filter: blur(0.4px);
+  border-radius: 50%;
+}

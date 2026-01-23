@@ -1,0 +1,205 @@
+/* Page background */
+.auth-page {
+  min-height: 100vh;
+  background: #4a4a4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main card */
+.auth-card {
+  width: 900px;
+  max-width: 95%;
+  min-height: 500px;
+  background: #ffffff;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* LEFT SIDE */
+.auth-left {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-left h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.auth-subtitle {
+  margin: 14px 0 28px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.auth-form input {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #8c8c8c;
+  font-size: 14px;
+  outline: none;
+}
+
+.auth-form input:focus {
+  border-color: var(--primary);
+}
+
+/* Forgot password */
+.auth-forgot {
+  font-size: 13px;
+  color: #777;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.auth-forgot:hover {
+  text-decoration: underline;
+}
+
+/* Primary button */
+.auth-primary-btn {
+  margin-top: 10px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.auth-primary-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* RIGHT SIDE */
+.auth-right {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-right h2 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.auth-right p {
+  margin: 18px 0 34px 0;
+  font-size: 14px;
+  max-width: 260px;
+}
+
+.auth-left h1,
+.auth-subtitle {
+  text-align: center;
+}
+
+/* Outline button */
+.auth-outline-btn {
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.auth-outline-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  /* Ensure single column */
+  .auth-card,
+  .auth-card.auth-reverse {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  /* Hide desktop CTA */
+  .auth-right {
+    display: none;
+  }
+
+  /* Fix vertical flow so CTA link is visible */
+  .auth-left {
+    justify-content: flex-start;
+    width: 100%;
+    padding: 48px 32px;
+  }
+
+  /* Show mobile CTA */
+  .auth-mobile-link {
+    display: block;
+    margin-top: 20px;
+  }
+
+  /* Center card perfectly */
+  .auth-page {
+    padding: 16px;
+  }
+
+  .auth-primary-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+/* Reverse layout for register page */
+.auth-reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-reverse > .auth-right {
+  order: 1;
+}
+
+.auth-reverse > .auth-left {
+  order: 2;
+}
+
+
+
+/* Mobile-only auth link */
+.auth-mobile-link {
+  display: none;
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.auth-mobile-link:hover {
+  text-decoration: underline;
+}

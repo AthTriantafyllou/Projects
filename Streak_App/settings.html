@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account Settings</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="YourApp">
+  <meta name="theme-color" content="#dddddd">
+
+  <link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+  <link rel="manifest" href="/streaks/manifest.json">
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/app.css" />
+
+  <!-- JS -->
+  <script type="module" src="/streaks/assets/js/settings.js"></script>
+  <script src="/streaks/assets/js/navigation.js"></script>
+</head>
+
+<body>
+
+  <div class="app-bg">
+    <div class="app-frame">
+
+      <main class="app-content">
+
+        <h1 class="app-title center">Account Settings</h1>
+
+        <hr class="page-divider" />
+
+        <!-- Email -->
+        <div class="settings-row glass glass-dark">
+          <span class="settings-label">Your E-mail:</span>
+          <span id="user-email" class="settings-value"></span>
+        </div>
+
+        <hr class="page-divider" />
+
+        <!-- Notifications -->
+        <div class="settings-row">
+          <button id="notif-btn" class="settings-btn glass glass-blue">
+            ENABLE NOTIFICATIONS
+          </button>
+        </div>
+
+
+
+        <!-- Actions -->
+        <div class="settings-actions">
+          <button id="logout-btn" class="settings-btn glass glass-orange">
+            LOG OUT
+          </button>
+
+          <button id="delete-account-btn" class="settings-btn glass glass-danger">
+            DELETE ACCOUNT
+          </button>
+        </div>
+
+        <div id="error" class="settings-error" style="display:none;"></div>
+
+
+        <hr class="page-divider" />
+        
+        <!-- App Version Display -->
+        <div class="settings-row glass glass-dark">
+          <span class="settings-label">App Version:</span>
+          <span id="app-version" class="settings-value" style="color: rgb(56, 56, 56);"></span>
+        </div>
+
+      </main>
+
+      <!-- Bottom navigation -->
+      <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+          <!-- home button -->
+          <button data-nav="home" aria-label="Home" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </button>
+          <!-- Presets button -->
+          <button data-nav="presets" aria-label="Presets" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="8" height="18" rx="1"/>
+              <path d="M7 3v18"/>
+              <path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"/>
+            </svg>
+          </button>
+          <!-- Store/Items button -->
+          <button data-nav="items" aria-label="Items" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+          </button>
+          <!-- Settings button -->
+          <button data-nav="settings" aria-label="Settings" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div id="confirm-overlay" class="confirm-overlay hidden">
+    <div class="confirm-modal">
+      <p id="confirm-text">Are you sure you want to delete this?</p>
+
+      <div class="confirm-actions">
+        <button id="confirm-cancel" class="confirm-btn cancel">Cancel</button>
+        <button id="confirm-yes" class="confirm-btn danger">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/streaks/assets/js/main.js"></script>
+</body>
+</html>

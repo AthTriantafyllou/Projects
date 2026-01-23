@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Activity</title>
+
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/app.css" />
+
+  <script type="module" src="/streaks/assets/js/create-activity.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="YourApp">
+<meta name="theme-color" content="#dddddd">
+
+<link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+<link rel="manifest" href="/streaks/manifest.json">
+</head>
+<body>
+
+  <div class="app-bg">
+    <div class="app-frame">
+
+      <main class="app-content create-activity-page">
+
+        <h1 class="app-title center">Create Activity</h1>
+        <hr class="page-divider" />
+
+        <!-- Activity title -->
+        <div class="form-group">
+          <label for="activity-title" class="form-label">Activity Name</label>
+          <input
+            type="text"
+            id="activity-title"
+            class="form-input"
+            placeholder="e.g. Morning Workout"
+          />
+        </div>
+
+        <hr class="activities-divider" />
+
+        <!-- Tasks -->
+        <h2 class="section-title">Tasks</h2>
+
+        <ul id="tasks-container" class="create-tasks-list">
+          <!-- JS injects li -->
+        </ul>
+
+        <button id="add-task-btn" class="settings-btn glass glass-blue">
+          <span>Add Task</span>
+          <span class="plus">＋</span>
+        </button>
+
+        <!-- Push actions to bottom -->
+        <div class="create-bottom">
+
+          <button id="save-activity-btn" class="settings-btn glass glass-green full">
+            Save
+          </button>
+
+          <button id="cancel-btn" class="settings-btn glass glass-orange full">
+            Cancel
+          </button>
+
+        </div>
+
+        <div id="error" class="activity-error" style="display:none;"></div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="/streaks/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Activity Statistics</title>
+
+  <script type="module" src="/streaks/assets/js/activity-stats.js"></script>
+
+  <link rel="stylesheet" href="/streaks/assets/css/activity-stats.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/app.css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="YourApp">
+<meta name="theme-color" content="#dddddd">
+
+<link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+<link rel="manifest" href="/streaks/manifest.json">
+
+</head>
+<body>
+  <div class="app-bg">
+    <div class="app-frame">
+
+      <main class="app-content stats-page">
+
+        <h1 id="activity-name" class="app-title stats-title">Stats — Activity</h1>
+        <hr class="page-divider" />
+
+        <div class="glass glass-dark-2 stats-numbers-card">
+          <div id="numeric-stats" class="stats-numbers"></div>
+        </div>
+
+        <hr class="activities-divider" />
+
+        <div class="month-nav">
+          <button id="prev-month" class="month-btn nav-btn" type="button">←</button>
+          <div id="month-label" class="month-label">MONTH</div>
+          <button id="next-month" class="month-btn nav-btn" type="button">→</button>
+        </div>
+
+        <div class="calendar-card glass glass-dark-2">
+          <div id="calendar"></div>
+        </div>
+
+        <div id="error" class="activity-error" style="display:none;"></div>
+
+        <div class="stats-bottom">
+          <button id="back-btn" class="action-btn full glass glass-green" type="button">Back</button>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="/streaks/assets/js/main.js"></script>
+</body>
+
+</html>

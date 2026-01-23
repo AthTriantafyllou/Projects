@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Items</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="YourApp">
+  <meta name="theme-color" content="#dddddd">
+
+  <link rel="apple-touch-icon" href="/streaks/icons/icon-192.png">
+  <link rel="manifest" href="/streaks/manifest.json">
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="/streaks/assets/css/main.css" />
+  <link rel="stylesheet" href="/streaks/assets/css/app.css" />
+
+  <!-- JS -->
+  <script type="module" src="/streaks/assets/js/items.js"></script>
+  <script src="/streaks/assets/js/navigation.js"></script>
+</head>
+
+<body>
+
+  <div class="app-bg">
+    <div class="app-frame">
+
+      <main class="app-content">
+
+
+        <!-- Title -->
+        <h1 class="app-title center">My Items</h1>
+
+        <hr class="page-divider" />
+
+        <!-- Owned items -->
+        <div class="items-grid">
+
+          <div class="item-box glass glass-blue">
+            <div class="icon-wrap">
+              <img src="/streaks/assets/icons/freeze.webp" class="app-icon" alt="Freezes" />
+            </div>
+
+            <div class="item-title">FREEZES</div>
+            <div class="item-separator"></div>
+            <div class="item-value" id="freeze-count">0</div>
+          </div>
+
+          <div class="item-box glass glass-orange">
+            <div class="icon-wrap">
+              <img src="/streaks/assets/icons/coins.webp" class="app-icon" alt="Coins" />
+            </div>
+
+            <div class="item-title">COINS</div>
+            <div class="item-separator"></div>
+            <div class="item-value" id="coin-count">0</div>
+          </div>
+
+          <div class="item-box glass glass-purple">
+            <div class="icon-wrap">
+              <img src="/streaks/assets/icons/trophy.webp" class="app-icon" alt="Trophies" />
+            </div>
+
+            <div class="item-title">TROPHIES</div>
+            <div class="item-separator"></div>
+            <div class="item-value" id="trophies-count">0</div>
+          </div>
+
+        </div>
+
+
+
+        <hr class="page-divider" />
+
+        <!-- Store -->
+        <h2 class="section-title center">Store Offers</h2>
+
+        <div class="store-list">
+
+          <button class="store-card" data-freezes="1" data-cost="1000">
+            <div class="store-left">
+              <div class="icon-wrap">
+                <img
+                  src="/streaks/assets/icons/freeze.webp"
+                  class="app-icon"
+                  alt="Freeze"
+                />
+              </div>
+
+              <div class="store-item-name">Single</div>
+            </div>
+
+            <div class="store-right">
+              <img
+                src="/streaks/assets/icons/coins.webp"
+                class="app-icon sm"
+                alt="Coins"
+              />
+              <span class="store-price">1000</span>
+            </div>
+          </button>
+
+          <button class="store-card" data-freezes="10" data-cost="8000">
+            <div class="store-left">
+              <div class="icon-wrap">
+                <img
+                  src="/streaks/assets/icons/freeze.webp"
+                  class="app-icon"
+                  alt="Freeze"
+                />
+              </div>
+
+              <div class="store-item-name">10 pack</div>
+            </div>
+
+            <div class="store-right">
+              <img
+                src="/streaks/assets/icons/coins.webp"
+                class="app-icon sm"
+                alt="Coins"
+              />
+              <span class="store-price">8000</span>
+            </div>
+          </button>
+
+          <button class="store-card" data-freezes="20" data-cost="14000">
+            <div class="store-left">
+              <div class="icon-wrap">
+                <img
+                  src="/streaks/assets/icons/freeze.webp"
+                  class="app-icon"
+                  alt="Freeze"
+                />
+              </div>
+
+              <div class="store-item-name">20 pack</div>
+            </div>
+
+            <div class="store-right">
+              <img
+                src="/streaks/assets/icons/coins.webp"
+                class="app-icon sm"
+                alt="Coins"
+              />
+              <span class="store-price">14000</span>
+            </div>
+          </button>
+
+        </div>
+
+        <div id="error" class="settings-error" style="display:none;"></div>
+
+      </main>
+
+      <!-- Bottom navigation -->
+      <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+          <!-- home button -->
+          <button data-nav="home" aria-label="Home" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </button>
+          <!-- Presets button -->
+          <button data-nav="presets" aria-label="Presets" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="8" height="18" rx="1"/>
+              <path d="M7 3v18"/>
+              <path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z"/>
+            </svg>
+          </button>
+          <!-- Store/Items button -->
+          <button data-nav="items" aria-label="Items" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+          </button>
+          <!-- Settings button -->
+          <button data-nav="settings" aria-label="Settings" class="nav-btn">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div id="confirm-overlay" class="confirm-overlay hidden">
+    <div class="confirm-modal">
+      <p id="confirm-text">Are you sure you want to delete this?</p>
+
+      <div class="confirm-actions">
+        <button id="confirm-cancel" class="confirm-btn cancel">Cancel</button>
+        <button id="confirm-yes" class="confirm-btn danger">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/streaks/assets/js/main.js"></script>
+</body>
+</html>

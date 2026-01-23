@@ -1,0 +1,361 @@
+/* Top bar */
+.lp-topbar {
+  padding: 18px 0;
+}
+
+.lp-topbar-inner {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Separator */
+.lp-separator {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* Hero */
+.lp-main {
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.lp-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.lp-title {
+  font-size: 54px;
+  line-height: 1.02;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.lp-title span {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.72em; /* 👈 key line */
+}
+
+.lp-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  padding-top: 10px;
+}
+
+.lp-subtitle {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  text-align: right;
+  max-width: 320px;
+}
+
+/* Hero image */
+.lp-hero-image {
+  margin-top: 18px;
+}
+
+.lp-hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+/* Our whys */
+.lp-whys {
+  margin-top: 36px;
+}
+
+.lp-section-title {
+  margin: 0 0 18px 0;
+  text-align: center;
+  color: var(--primary);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+
+.lp-whys-grid {
+  display: grid;
+  grid-template-columns: 1fr 12px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.lp-whys-divider {
+  width: 2px;
+  height: 100%;
+  background: var(--border);
+  justify-self: center;
+  border-radius: 2px;
+}
+
+.lp-chat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lp-chat-pill {
+  align-self: flex-start;
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 12px;
+  max-width: 340px;
+}
+
+.lp-bubble {
+  background: #f6f6f6;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 14px;
+  font-size: 13px;
+  line-height: 1.35;
+  max-width: 360px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+
+.lp-bubble-left {
+  align-self: flex-start;
+}
+
+.lp-bubble-right {
+  align-self: flex-end;
+}
+
+.lp-chat-col:last-child .lp-chat-pill {
+  align-self: flex-end;
+}
+
+/* Section separator */
+.lp-section-separator {
+  width: 80%;
+  height: 1px;
+  background: var(--border);
+  margin: 42px auto;
+}
+
+
+/* Features */
+.lp-features {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.lp-feature-card {
+  background: var(--surface-2);
+  border-radius: 18px;
+  padding: 20px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.lp-feature-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.lp-feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+  min-height: 56px;
+}
+
+.lp-feature-icon {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lp-emoji {
+  font-size: 44px;
+  line-height: 1;
+}
+
+.lp-feature-big {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* Footer */
+.lp-footer {
+  margin-top: 50px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+
+.lp-footer-inner {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .lp-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-title {
+    font-size: 42px;
+  }
+
+  .lp-hero-right {
+    align-items: flex-start;
+  }
+
+  .lp-subtitle {
+    text-align: left;
+  }
+
+  .lp-section-separator {
+    width: 90%;
+    margin: 32px auto;
+  }
+
+  .lp-whys-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-whys-divider {
+    display: none;
+  }
+
+  .lp-chat-col:last-child .lp-chat-pill {
+    align-self: flex-start;
+  }
+
+  .lp-bubble-right {
+    align-self: flex-start;
+  }
+
+  .lp-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* how to's */
+
+
+.how-desc {
+  margin: 12px 0 20px;
+  max-width: 600px;
+}
+
+.how-list {
+  padding-left: 20px;
+}
+
+.how-list li {
+  margin-bottom: 12px;
+}
+
+.how-list a {
+  text-decoration: none;
+  color: #000;
+}
+
+.how-list a:hover {
+  text-decoration: underline;
+}
+
+.coming-soon {
+  margin-top: 16px;
+  color: #777;
+  font-style: italic;
+}
+
+
+.lp-section-title-2 {
+  margin: 0 0 18px 0;
+  text-align: left;
+  color: var(--primary);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+
+
+
+
+/* how to page */
+
+.back-btn { 
+  background: #0cc9de; 
+  border-radius: 20px; 
+  padding: 14px 18px; 
+  margin-bottom: 20px; 
+  text-align: center; 
+  max-width: 100px; 
+  width: 100%; 
+  margin: 0 auto; 
+}
+
+.back-btn a {
+  color:#000; 
+  text-decoration: none; 
+}
+
+
+
+.page-title {
+  text-align: center;
+  color: #f28c28;
+  margin-bottom: 16px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 24px 0;
+}
+
+.steps {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.step {
+  background: #f1f4f6;
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.step p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.image-info img {
+  display: block;
+  max-width: 220px;
+  width: 100%;
+  margin: 8px auto 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
