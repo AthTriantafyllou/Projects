@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow Life – Ski & Snow | Pure Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body class="page-body">
+    <div id="snow"></div>
+
+
+    <!-- ── NAV ── -->
+    <nav class="page-nav" id="pageNav">
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="../index.html" class="nav-logo">
+            <svg class="nav-logo-svg" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="85" cy="18" r="12" fill="#F5A623"/>
+                <polygon points="20,65 50,20 80,65" fill="white" opacity="0.95"/>
+                <polygon points="50,65 72,32 94,65" fill="white" opacity="0.85"/>
+                <polygon points="44,32 50,20 56,32" fill="#cce8f4"/>
+                <polygon points="68,40 72,32 76,40" fill="#cce8f4"/>
+                <path d="M10,72 Q25,62 40,72 Q55,82 70,72 Q85,62 100,72 Q110,78 115,72"
+                    fill="none" stroke="#4ab8e8" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <span class="nav-logo-text">Pure Life</span>
+        </a>
+
+        <div class="nav-center">
+            <div class="nav-links">
+                <a href="salty-life.html" class="nav-link">Salty Life</a>
+                <a href="snow-life.html" class="nav-link">Snow Life</a>
+                <a href="mountain-life.html" class="nav-link">Mountain Life</a>
+                <a href="all-life.html" class="nav-link">All Life</a>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <a href="contact.html" class="nav-contact-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-top">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+        </div>
+
+        <div class="mobile-menu-links">
+            <a href="salty-life.html" class="mobile-menu-link">Salty Life</a>
+            <a href="snow-life.html" class="mobile-menu-link">Snow Life</a>
+            <a href="mountain-life.html" class="mobile-menu-link">Mountain Life</a>
+            <a href="all-life.html" class="mobile-menu-link">All Life</a>
+            <a href="contact.html" class="mobile-menu-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="page-hero">
+        <div class="page-hero-bg" style="background-image: url('../assets/images/new/snow_life_landing.webp');"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content">
+            <p class="page-hero-label">Pure Life &mdash; Adventures</p>
+            <h1 class="page-hero-title">Snow Life</h1>
+            <p class="page-hero-tagline">First tracks, blue runs, cold air, and après ski with the right crew.</p>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT SNOW LIFE ===================== -->
+    <section class="about-section">
+        <div class="section-inner">
+            <p class="about-label">What is Snow Life</p>
+            <h2 class="about-title">More than a ski trip.</h2>
+            <p class="about-text">
+                Snow Life is for those who feel most alive when the piste is fresh and the mountains
+                are white. We organise small-group ski and snowboard trips to some of the best resorts
+                in Europe — everything handled from airport transfer to slope-side evenings.
+                You show up, clip in, and go.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== TRIPS ===================== -->
+    <section class="trips-section">
+        <div class="section-inner">
+
+            <div class="section-header">
+                <p class="about-label">Upcoming Adventures</p>
+                <h2 class="section-title">Find your next trip</h2>
+                <p class="section-subtitle">We keep groups small and itineraries intentional. Every trip below is a complete experience — just show up.</p>
+            </div>
+
+            <!-- TRIP CARD: Val Thorens 5 Days -->
+            <div class="trip-card">
+                <div class="trip-card-inner">
+
+                    <!-- Image panel -->
+                    <div class="trip-image-panel">
+                        <div class="trip-image" style="background-image: url('../assets/images/new/val_thorens_hero_snowlife.webp'); background-position: center 40%;"></div>
+                        <div class="trip-image-overlay"></div>
+
+                        <div class="trip-badges">
+                            <span class="trip-badge trip-badge--duration">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                5 Days
+                            </span>
+                            <span class="trip-badge trip-badge--spots">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                Spots Available
+                            </span>
+                        </div>
+
+                        <div class="trip-location-strip">
+                            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span class="location-text">Val Thorens &mdash; French Alps</span>
+                        </div>
+                    </div>
+
+                    <!-- Info panel -->
+                    <div class="trip-info-panel">
+
+                        <div class="trip-header">
+                            <span class="trip-category-tag">Snow Life &bull; Ski &amp; Snow</span>
+                            <h3 class="trip-name">Val Thorens in Five Days</h3>
+                            <p class="trip-subtitle">
+                                Five days at Europe's highest ski resort — 2300m, 600km of pistes,
+                                and evenings that match the mountains. Ski pass, accommodation,
+                                airport transfer, and the right group. All sorted.
+                            </p>
+                        </div>
+
+                        <!-- What's included -->
+                        <div>
+                            <p class="trip-includes-title">What's Included</p>
+                            <div class="trip-includes-grid">
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                    </svg>
+                                    Resort accommodation
+                                </div>
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                                        <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                                    </svg>
+                                    GVA airport transfer
+                                </div>
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                                        <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+                                    </svg>
+                                    Breakfast &times;3
+                                </div>
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                                    </svg>
+                                    2 group dinners
+                                </div>
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"/>
+                                    </svg>
+                                    Ski pass (3 days)
+                                </div>
+
+                                <div class="include-item">
+                                    <svg class="include-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                    Small group
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="trip-footer">
+                            <a href="val-thorens-5days.html" class="trip-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / trip card -->
+
+        </div>
+    </section>
+
+    <!-- ===================== CAMERA ROLL ===================== -->
+    <section class="camera-roll-section">
+        <div class="section-inner">
+            <p class="about-label">Our Camera Roll</p>
+            <h2 class="section-title">Moments from the slopes</h2>
+            <p class="section-subtitle" style="margin-top:10px;">A few frames from the mountains we've skied. More powder days in the making.</p>
+        </div>
+
+        <div class="camera-roll-strip" id="cameraRoll">
+
+            <div class="photo-tile photo-tile--portrait">
+                <div class="photo-tile-bg ph-snow-1"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Val Thorens, France
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+            <div class="photo-tile photo-tile--landscape">
+                <div class="photo-tile-bg ph-ski-1"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Les Trois Vallées
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+            <div class="photo-tile photo-tile--square">
+                <div class="photo-tile-bg ph-snow-2"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Summit Piste, 2300m
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+            <div class="photo-tile photo-tile--portrait">
+                <div class="photo-tile-bg ph-alps-1"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        French Alps
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+            <div class="photo-tile photo-tile--landscape">
+                <div class="photo-tile-bg ph-ski-2"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Après Ski, Val Thorens
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+            <div class="photo-tile photo-tile--square">
+                <div class="photo-tile-bg ph-snow-1"></div>
+                <div class="photo-tile-caption">
+                    <span class="photo-tile-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        First Tracks
+                    </span>
+                    <span class="photo-tile-date">Winter 2025</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="page-footer">
+        <a href="../index.html" class="footer-logo">Pure Life</a>
+        <span class="footer-copy">&copy; 2025 Pure Life Adventures. All rights reserved.</span>
+    </footer>
+
+    <script>
+
+        const roll = document.getElementById('cameraRoll');
+        let isDown = false, startX, scrollLeft;
+
+        roll.addEventListener('mousedown', e => {
+            isDown = true;
+            startX = e.pageX - roll.offsetLeft;
+            scrollLeft = roll.scrollLeft;
+        });
+        roll.addEventListener('mouseleave', () => { isDown = false; });
+        roll.addEventListener('mouseup',    () => { isDown = false; });
+        roll.addEventListener('mousemove', e => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - roll.offsetLeft;
+            roll.scrollLeft = scrollLeft - (x - startX) * 1.4;
+        });
+    </script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/nav.js"></script>
+
+</body>
+</html>

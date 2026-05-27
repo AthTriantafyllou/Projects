@@ -1,0 +1,865 @@
+/* =============================================
+   PURE LIFE – Main Stylesheet
+   Base path: thanfyllou.eu/travel2/
+   ============================================= */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f8fc;
+    color: #1a2d3e;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =============================================
+   HERO SECTION
+   =============================================
+   Colour palette (light theme)
+   --glass-bg  : rgba(255,255,255,0.52)
+   --glass-bdr : rgba(255,255,255,0.75)
+   --accent    : #2590c8
+   --text-dark : #1a2d3e
+   --text-mid  : #4a6278
+   ============================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* --- Hero Background Image --- */
+.hero-bg {
+    position: absolute;
+    inset: -8px;
+    background-image: url('../assets/images/hero_bg.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    filter: blur(3px);
+}
+
+/* --- Hero Overlay --- */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.0) 35%,
+        rgba(0,0,0,0.45) 100%
+    );
+    z-index: 1;
+}
+
+/* --- Logo Area --- */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(40px, 8vh, 80px);
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    /* White frosted glass */
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.75);
+    border-radius: 24px;
+    padding: clamp(20px, 3vw, 36px) clamp(32px, 6vw, 80px);
+    box-shadow:
+        0 8px 40px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.logo-svg {
+    width: clamp(100px, 14vw, 160px);
+    height: auto;
+}
+
+.logo-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 700;
+    color: #1a2d3e;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.logo-tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(13px, 1.8vw, 22px);
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4a6278;
+}
+
+/* --- Category Cards Row --- */
+.hero-cards {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: clamp(8px, 1.2vw, 16px);
+    padding: clamp(20px, 4vh, 40px) clamp(16px, 3vw, 48px);
+    width: 100%;
+    max-width: 1400px;
+    align-self: center;
+}
+
+/* --- Single Card --- */
+.card {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.55);
+    box-shadow:
+        0 6px 24px rgba(0,0,0,0.30),
+        0 2px 8px rgba(0,0,0,0.20),
+        inset 0 1px 0 rgba(255,255,255,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255,255,255,0.85);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.40),
+        0 4px 12px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-bg {
+    transform: scale(1.06);
+}
+
+.card-bg--salty    { background-image: url('../assets/images/new/salty_life_landing.webp'); }
+.card-bg--snow     { background-image: url('../assets/images/new/snow_life_landing.webp'); }
+.card-bg--mountain { background-image: url('../assets/images/new/mountain_life_landing.webp'); }
+.card-bg--all      { background-image: url('../assets/images/new/all_life_landing.webp'); }
+
+/* Card overlay */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.0) 0%,
+        rgba(0,0,0,0.50) 100%
+    );
+    transition: background 0.3s ease;
+}
+
+.card:hover .card-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.62) 100%
+    );
+}
+
+/* Card text */
+.card-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: clamp(12px, 2vw, 20px);
+    gap: 4px;
+}
+
+.card-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(20px, 2.8vw, 36px);
+    font-weight: 700;
+    color: white;
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.7),
+        0 4px 20px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    text-align: center;
+}
+
+.card-icon {
+    width: clamp(32px, 4vw, 52px);
+    height: clamp(32px, 4vw, 52px);
+    opacity: 0.95;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    margin: 4px 0;
+}
+
+.card-subtitle {
+    font-size: clamp(10px, 1.1vw, 14px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* =============================================
+   HERO NAV BUTTONS
+   ============================================= */
+
+.hero-nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 22px;
+    background: rgba(255,255,255,0.38);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.60);
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(11px, 1.1vw, 13px);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a2d3e;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+.hero-nav-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.hero-nav-btn:hover {
+    background: rgba(255,255,255,0.62);
+    border-color: rgba(255,255,255,0.90);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.85);
+}
+
+.hero-nav-btn:hover svg { opacity: 1; }
+
+.hero-nav-btn--socials.active {
+    background: rgba(255,255,255,0.72);
+    border-color: rgba(255,255,255,0.95);
+}
+
+/* =============================================
+   SOCIALS POPUP
+   ============================================= */
+
+.socials-popup {
+    /* Fixed to the viewport — sits ABOVE the backdrop (z-index 150) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 12px));
+    width: clamp(260px, 30vw, 320px);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.95);
+    z-index: 200;          /* above backdrop z-index:150 */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.socials-popup.open {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: all;
+}
+
+.socials-popup-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8099ad;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.socials-popup-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.60);
+    border: 1px solid rgba(0,0,0,0.06);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-link:hover {
+    background: rgba(255,255,255,0.92);
+    transform: translateX(3px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.social-link-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.social-link-icon svg { width: 20px; height: 20px; }
+
+.social-link-icon--ig {
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+    color: white;
+}
+
+.social-link-icon--tt {
+    background: #000000;
+    color: white;
+}
+
+.social-link-icon--x {
+    background: #1a1a1a;
+    color: white;
+}
+
+.social-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+}
+
+.social-link-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a2d3e;
+}
+
+.social-link-handle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #8099ad;
+}
+
+.social-link-arrow {
+    width: 14px;
+    height: 14px;
+    color: #c0cdd6;
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-link:hover .social-link-arrow {
+    color: #2590c8;
+    transform: translateX(2px);
+}
+
+/* =============================================
+   "THE BORING STUFF" CORNER BUTTON
+   ============================================= */
+
+.boring-corner-btn {
+    position: fixed;
+    bottom: 18px;
+    right: 22px;
+    z-index: 300;
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: lowercase;
+    color: rgba(255,255,255,0.40);
+    cursor: pointer;
+    padding: 4px 0;
+    transition: color 0.25s ease;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(255,255,255,0.20);
+}
+
+.boring-corner-btn:hover {
+    color: rgba(255,255,255,0.80);
+    text-decoration-color: rgba(255,255,255,0.50);
+}
+
+/* =============================================
+   BORING STUFF POPUP (modal)
+   ============================================= */
+
+.boring-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.boring-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.boring-popup {
+    position: relative;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 44px);
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.95);
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.boring-overlay.open .boring-popup {
+    transform: translateY(0) scale(1);
+}
+
+.boring-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.06);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #4a6070;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.boring-close:hover { background: rgba(0,0,0,0.12); color: #1a2d3e; }
+.boring-close svg { width: 15px; height: 15px; }
+
+.boring-popup-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #2590c8;
+    margin-bottom: 8px;
+}
+
+.boring-popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    color: #1a2d3e;
+    margin-bottom: 6px;
+}
+
+.boring-popup-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #7a90a0;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.boring-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.boring-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #f5f8fc;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2a4058;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.boring-link:hover {
+    background: #edf3f9;
+    transform: translateX(3px);
+}
+
+.boring-link svg {
+    width: 16px;
+    height: 16px;
+    color: #2590c8;
+    flex-shrink: 0;
+}
+
+.boring-powered {
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.boring-powered-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #9aacb8;
+    letter-spacing: 0.5px;
+}
+
+.boring-powered-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4a6070;
+    letter-spacing: 0.5px;
+    /* swap this span for an <img> tag when the real logo is ready */
+}
+
+/* =============================================
+   POPUP BACKDROP (shared)
+   ============================================= */
+
+.popup-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.popup-backdrop.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* =============================================
+   GLOBE PIN POPUP
+   ============================================= */
+
+.globe-popup {
+    position: fixed;
+    z-index: 400;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    border-radius: 18px;
+    padding: 18px 20px 18px;
+    min-width: 260px;
+    max-width: 320px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50%) translateY(calc(-100% - 14px));
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.globe-popup.open {
+    opacity: 1;
+    transform: translateX(-50%) translateY(calc(-100% - 18px));
+    pointer-events: all;
+}
+
+.globe-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top: 8px solid rgba(255, 255, 255, 0.96);
+    border-bottom: none;
+}
+
+.globe-popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.06);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #4a6070;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.globe-popup-close:hover {
+    background: rgba(0, 0, 0, 0.12);
+    color: #1a2d3e;
+}
+
+.globe-popup-close svg {
+    width: 12px;
+    height: 12px;
+}
+
+.globe-popup-country {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #2590c8;
+    margin-bottom: 10px;
+    padding-right: 28px;
+}
+
+.globe-popup-trips {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.globe-popup-trip {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 6px 0 14px;
+}
+
+.globe-popup-trip + .globe-popup-trip {
+    border-top: 1px solid rgba(26, 45, 62, 0.10);
+    padding-top: 14px;
+}
+
+.globe-popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a2d3e;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.globe-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    background: #2590c8;
+    color: #ffffff;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.globe-popup-btn:hover {
+    background: #1a7ab0;
+    transform: translateY(-1px);
+}
+
+/* =============================================
+   GLOBE MARKERS
+   ============================================= */
+
+.globe-marker {
+    cursor: pointer;
+}
+
+.globe-marker:hover {
+    filter: brightness(1.04);
+}
+
+@keyframes globeMarkerPulse {
+    0% {
+        scale: 0.78;
+        opacity: 0.85;
+    }
+    70% {
+        scale: 1.9;
+        opacity: 0;
+    }
+    100% {
+        scale: 1.9;
+        opacity: 0;
+    }
+}
+
+/* =============================================
+   GLOBE SECTION
+   ============================================= */
+
+.globe-section {
+    width: 100%;
+    background: linear-gradient(to bottom, #f5f8fc 0%, #ffffff 100%);
+    padding: clamp(60px, 10vh, 120px) clamp(16px, 3vw, 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.globe-section-inner {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.globe-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #2590c8;
+}
+
+.globe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 800;
+    color: #1a2d3e;
+    text-align: center;
+    line-height: 1.15;
+}
+
+.globe-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(12px, 1.3vw, 15px);
+    color: #7a90a0;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.globe-canvas-wrap {
+    width: min(100%, 760px);
+    height: min(76vw, 620px);
+    min-height: 420px;
+    position: relative;
+    cursor: grab;
+    filter: drop-shadow(0 20px 48px rgba(37, 144, 200, 0.12));
+}
+
+.globe-canvas-wrap:active {
+    cursor: grabbing;
+}
+
+.globe-canvas-wrap > div,
+.globe-canvas-wrap canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+    .hero-cards {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .card {
+        flex: 1 1 calc(50% - 10px);
+        aspect-ratio: 3 / 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .card { flex: 1 1 100%; }
+}

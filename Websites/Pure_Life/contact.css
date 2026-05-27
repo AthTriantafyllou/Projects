@@ -1,0 +1,170 @@
+/* =============================================
+   PURE LIFE – contact.css
+   Styles exclusive to pages/contact.html
+   ============================================= */
+
+.contact-main {
+    min-height: calc(100vh - 68px);
+    margin-top: 68px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    background: #f5f8fc;
+}
+
+/* ── LEFT ── */
+.contact-left {
+    background: #ffffff;
+    border-right: 1px solid rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 72px);
+}
+
+.contact-left-inner {
+    max-width: 420px;
+}
+
+.contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 800;
+    color: #1a2d3e;
+    line-height: 0.95;
+    margin-bottom: 20px;
+}
+
+.contact-intro {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.8;
+    color: #4a6070;
+    margin-bottom: 40px;
+}
+
+/* Direct email */
+.contact-direct { margin-bottom: 36px; }
+
+.contact-direct-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9aacb8;
+    margin-bottom: 12px;
+}
+
+.contact-email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(13px, 1.2vw, 15px);
+    font-weight: 600;
+    color: #2590c8;
+    text-decoration: none;
+    padding: 13px 18px;
+    background: rgba(37,144,200,0.06);
+    border: 1px solid rgba(37,144,200,0.20);
+    border-radius: 12px;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    word-break: break-all;
+}
+
+.contact-email-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.contact-email-link:hover {
+    background: rgba(37,144,200,0.11);
+    border-color: rgba(37,144,200,0.40);
+    transform: translateY(-1px);
+}
+
+/* Social icons */
+.contact-socials-row {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-social-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+}
+
+.contact-social-icon svg { width: 20px; height: 20px; }
+
+.contact-social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+}
+
+.contact-social-icon--ig { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+.contact-social-icon--tt { background: #000000; }
+.contact-social-icon--x  { background: #1a1a1a; }
+
+/* ── RIGHT (FORM) ── */
+.contact-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 72px);
+}
+
+.contact-form-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 24px;
+    padding: clamp(28px, 4vw, 48px);
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.08);
+}
+
+.contact-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 800;
+    color: #1a2d3e;
+    margin-bottom: 6px;
+}
+
+.contact-form-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #7a90a0;
+    margin-bottom: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 860px) {
+    .contact-main {
+        grid-template-columns: 1fr;
+        min-height: unset;
+    }
+
+    .contact-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        padding: clamp(40px, 6vw, 64px) clamp(24px, 5vw, 60px);
+    }
+
+    .contact-left-inner { max-width: 100%; }
+
+    .contact-right {
+        padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 60px);
+    }
+}
