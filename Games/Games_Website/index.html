@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ARCADE — Triantafyllou Game Hall</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/arcade.css" />
+</head>
+<body>
+
+<div class="grid-floor"></div>
+
+<!-- TOP MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">
+    <div class="logo">A</div>
+    <div>
+      <div class="name">TRIANTAFYLLOU <b>★</b> GAME HALL</div>
+      <div class="sub">— EST. 2026 · LOCAL 2P CABINET ·</div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <div class="credits">CREDITS <b>02</b></div>
+    <button class="about-btn" id="aboutOpen">ABOUT</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="small">★  PLAYER  1  ★  SELECT  YOUR  GAME  ★</div>
+  <h1 class="title">PRESS&nbsp;START<br/><span class="glow">TO PLAY</span></h1>
+  <div class="insert">▶ INSERT COIN ◀</div>
+</section>
+
+<!-- HUD -->
+<div class="hud">
+  <div class="col">
+    <div>1UP <span class="v">000200</span></div>
+    <div>HI-SCORE <span class="v">013370</span></div>
+  </div>
+  <div class="col">
+    <div>STAGE <span class="v">01</span></div>
+    <div>LIVES <span class="v">♥ ♥ ♥</span></div>
+  </div>
+  <div class="col">
+    <div>TIME <span class="v" id="clock">--:--</span></div>
+  </div>
+</div>
+
+<!-- CABINETS -->
+<section class="cabinets">
+
+  <!-- WAVELENGTH -->
+  <article class="cab">
+    <div class="marquee-top">
+      <div class="id">CAB · 01</div>
+      <div class="stat"><span class="led"></span> READY</div>
+    </div>
+    <div class="screen">
+      <div class="screen-bg wv-bg">
+        <div class="wv-needle"></div>
+        <div class="wv-dot"></div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="title-row">
+        <div class="gname wv">WAVELENGTH</div>
+        <div class="gnum">№ 01</div>
+      </div>
+      <div class="blurb">
+        Tune your mind to your partner's. Read each other right and you'll land the dial. Miss — and the spectrum laughs back. A duel of intuition for two players.
+      </div>
+      <div class="meta">
+        <div>2 PLAYERS</div>
+        <div class="stars">★ ★ ★ ★ ☆</div>
+        <div>LOCAL · PC</div>
+      </div>
+      <a class="play" href="games/game1.html"><span class="arrow">▶</span>PLAY NOW</a>
+    </div>
+  </article>
+
+  <!-- MEGA TICTACTOE -->
+  <article class="cab">
+    <div class="marquee-top">
+      <div class="id">CAB · 02</div>
+      <div class="stat"><span class="led"></span> READY</div>
+    </div>
+    <div class="screen">
+      <div class="screen-bg tt-bg">
+        <div class="tt-grid" id="ttGrid"></div>
+        <div class="tt-cursor"></div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="title-row">
+        <div class="gname tt">MEGA TIC-TAC-TOE</div>
+        <div class="gnum">№ 02</div>
+      </div>
+      <div class="blurb">
+        Tic-tac-toe on a grid of grids. Every move sends your rival to a new board. Outthink, outflank, outlast. The classic — but with teeth.
+      </div>
+      <div class="meta">
+        <div>2 PLAYERS</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <div>LOCAL · PC</div>
+      </div>
+      <a class="play" href="games/game2.html"><span class="arrow">▶</span>PLAY NOW</a>
+    </div>
+  </article>
+
+  <!-- COMING SOON -->
+  <article class="cab">
+    <div class="marquee-top">
+      <div class="id">CAB · 03</div>
+      <div class="stat"><span class="led amber"></span> BUILDING</div>
+    </div>
+    <div class="screen">
+      <div class="screen-bg cs-bg">
+        <div class="cs-blink">SYSTEM OFFLINE</div>
+        <div class="cs-tape"><span>► UNDER CONSTRUCTION ◄</span></div>
+        <div class="cs-foot">NEW GAME LOADING...</div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="title-row">
+        <div class="gname cs">COMING SOON</div>
+        <div class="gnum">№ 03</div>
+      </div>
+      <div class="blurb">
+        A new cabinet is being wired up in the back room. Big plans, fresh circuits. Drop in soon — we'll have the marquee lit and the joystick ready.
+      </div>
+      <div class="meta">
+        <div>TBA</div>
+        <div class="stars">☆ ☆ ☆ ☆ ☆</div>
+        <div>SOON™</div>
+      </div>
+      <button class="play disabled" disabled><span class="arrow">▶</span>STAND BY</button>
+    </div>
+  </article>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 — CREATED BY <b>ATHANASIOS TRIANTAFYLLOU</b> &nbsp;·&nbsp; <span class="hi">GAME OVER?</span> PRESS START
+</footer>
+
+<!-- ABOUT PANEL -->
+<div class="scrim" id="scrim"></div>
+<aside class="about" id="about" aria-hidden="true">
+  <button class="x" id="aboutClose">✕ CLOSE</button>
+  <h2>ABOUT</h2>
+  <div class="lead">
+    A small arcade hall of browser games — built for laughs around a keyboard with a friend.
+  </div>
+
+  <div class="terminal">
+    <div><span class="p">&gt;</span> WHO_IS_THIS()</div>
+    <div>&nbsp;&nbsp;ATHANASIOS TRIANTAFYLLOU</div>
+    <div>&nbsp;&nbsp;BUILDS WEB GAMES FOR FUN.</div>
+    <div><span class="p">&gt;</span> WHAT_IS_HERE()</div>
+    <div>&nbsp;&nbsp;TWO PLAYABLE CABINETS.</div>
+    <div>&nbsp;&nbsp;MORE BEING SOLDERED.</div>
+    <div><span class="p">&gt;</span> HOW_TO_PLAY()</div>
+    <div>&nbsp;&nbsp;PICK A CABINET. CALL A FRIEND.</div>
+    <div>&nbsp;&nbsp;SHARE A KEYBOARD<span class="cursor"></span></div>
+  </div>
+
+  <div>
+    <div class="row"><span class="k">EST.</span><span class="v">2026</span></div>
+    <div class="row"><span class="k">CABINETS</span><span class="v">2 / 3 LIT</span></div>
+    <div class="row"><span class="k">PLAYERS</span><span class="v">LOCAL · 2P</span></div>
+    <div class="row"><span class="k">FEE</span><span class="v">FREE PLAY</span></div>
+    <div class="row"><span class="k">COIN</span><span class="v">NOT REQ.</span></div>
+  </div>
+
+  <div style="margin-top:auto;font-family:'Press Start 2P',monospace;font-size:8px;color:var(--dim);text-align:center;line-height:1.6">
+    <div style="color:var(--magenta);margin-bottom:6px">★ THANKS FOR PLAYING ★</div>
+    GAME HALL v1.0 · BUILT WITH<br/>HAND-SOLDERED HTML &amp; CSS
+  </div>
+</aside>
+
+<script src="js/arcade.js"></script>
+</body>
+</html>
