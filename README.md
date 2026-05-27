@@ -1,5 +1,4 @@
-I have created a website, to store my projects at the moment. 
+You can find a the visual presentation of my projects [there.](https://thanfyllou.eu/cv)
 
-You can find them on [Than's Projects](https://thanfyllou.eu/second_brain/index.html)
+Here you can find the raw code of my top projects. I will try to keep updating frequently so its not missing any major update.
 
-Here you can find the raw code of each project.
