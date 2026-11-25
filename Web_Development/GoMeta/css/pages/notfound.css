@@ -1,0 +1,41 @@
+/* 404 page only */
+
+.notfound {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.notfound__wrap {
+  position: relative;
+  max-width: 620px;
+  margin: 3rem auto 0;
+}
+
+.notfound__card {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-1);
+  text-align: center;
+}
+
+.notfound__code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-text);
+}
+
+.notfound__title {
+  margin-top: 1rem;
+  font-size: var(--fs-h2);
+}
+
+.notfound__text {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.notfound__card .btn {
+  margin-top: 2rem;
+}

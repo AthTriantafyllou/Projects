@@ -1,0 +1,1417 @@
+/* ===== fonts.css ===== */
+/* Self-hosted fonts (copied to /fonts by build.mjs). No requests to Google. */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/gometa3/fonts/space-grotesk-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/gometa3/fonts/space-grotesk-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/gometa3/fonts/space-grotesk-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/gometa3/fonts/space-grotesk-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/gometa3/fonts/jetbrains-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/gometa3/fonts/jetbrains-mono-500.woff2') format('woff2');
+}
+
+/* ===== tokens.css ===== */
+/* Design tokens: every colour, size and timing lives here.
+   Change the look of the whole site from this one file.
+   Switch theme by setting <html data-theme="light"> in src/partials/layout.html. */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Colour (dark theme) */
+  --bg: #0e1116;
+  --bg-raised: #151a21;
+  --surface-1: #18202a;
+  --surface-2: #1d2631;
+  --surface-3: #232e3b;
+  --chip: #222b36;
+  --text: #e6e8eb;
+  --text-muted: #a4acb7;
+  --text-faint: #8f99a6;
+  --accent: #f5b544;
+  --accent-hover: #ffc45f;
+  --on-accent: #0e1116;
+  --accent-text: #f5b544;
+  --accent-soft: rgba(245, 181, 68, 0.14);
+  --danger: #ff8f80;
+  --dot: rgba(255, 255, 255, 0.07);
+  --header-bg: rgba(14, 17, 22, 0.8);
+
+  /* Type scale */
+  --fs-eyebrow: 0.8125rem;
+  --fs-body: 1.0625rem;
+  --fs-lead: clamp(1.125rem, 1.6vw, 1.25rem);
+  --fs-h2: clamp(2rem, 3.8vw, 2.75rem);
+  --fs-h1: clamp(2.5rem, 6vw, 4.25rem);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 2rem);
+  --section-y: clamp(4rem, 9vw, 7.5rem);
+  --header-h: 72px;
+
+  /* Radii */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 700ms;
+}
+
+[data-theme='light'] {
+  --bg: #f7f5f0;
+  --bg-raised: #ffffff;
+  --surface-1: #efece4;
+  --surface-2: #e8e4da;
+  --surface-3: #e0dbce;
+  --chip: #eae6db;
+  --text: #14171c;
+  --text-muted: #4b515b;
+  --text-faint: #5e646e;
+  --accent-hover: #e7a42f;
+  --accent-text: #8a5a00;
+  --accent-soft: rgba(245, 181, 68, 0.28);
+  --danger: #b3261e;
+  --dot: rgba(20, 23, 28, 0.08);
+  --header-bg: rgba(247, 245, 240, 0.82);
+}
+
+/* ===== base.css ===== */
+/* Reset and element defaults */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* ===== layout.css ===== */
+/* Page structure: container, sections, section headings */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.page-main {
+  display: block;
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--flush-top {
+  padding-top: 0;
+}
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.section__title {
+  margin-top: 1.1rem;
+  max-width: 20ch;
+  font-size: var(--fs-h2);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.eyebrow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ===== components/buttons.css ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn--accent {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--accent:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 10px 28px -12px var(--accent);
+}
+
+.btn--ghost {
+  background: var(--surface-1);
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  background: var(--surface-3);
+}
+
+.btn--lg {
+  padding: 1.05rem 2rem;
+  font-size: 1.0625rem;
+}
+
+.btn--sm {
+  padding: 0.7rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* ===== components/cards.css ===== */
+/* Service cards (home), feature cards (service pages) and process steps */
+
+.service-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 2rem;
+  border-radius: var(--radius-xl);
+  background: var(--bg-raised);
+  transition:
+    transform var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  background: var(--surface-1);
+}
+
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.service-card__icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card__title {
+  margin-top: 1.75rem;
+  font-size: 1.625rem;
+}
+
+.service-card__text {
+  margin-top: 0.875rem;
+  color: var(--text-muted);
+}
+
+.service-card__chips {
+  margin-top: 1.5rem;
+}
+
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+/* makes the whole card clickable */
+.service-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.service-card__link span {
+  display: inline-block;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.service-card:hover .service-card__link span {
+  transform: translateX(5px);
+}
+
+.features {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+.feature-card {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-raised);
+}
+
+.feature-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent-text);
+}
+
+.feature-card__title {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.feature-card__num + .feature-card__title {
+  margin-top: 0.75rem;
+}
+
+.feature-card__title:first-child {
+  margin-top: 0;
+}
+
+.feature-card__text {
+  margin-top: 0.625rem;
+  color: var(--text-muted);
+}
+
+.steps {
+  display: grid;
+  gap: 2.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+.step__num {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent-text);
+}
+
+.step__title {
+  margin-top: 0.75rem;
+  font-size: 1.375rem;
+}
+
+.step__text {
+  margin-top: 0.625rem;
+  color: var(--text-muted);
+}
+
+/* ===== components/chips.css ===== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-pill);
+  background: var(--chip);
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.chip--accent {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+/* ===== components/cta.css ===== */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+  border-radius: var(--radius-2xl);
+  background: var(--surface-1);
+}
+
+.cta__title {
+  max-width: 18ch;
+  font-size: clamp(1.9rem, 4vw, 2.875rem);
+}
+
+.cta__text {
+  margin-top: 1rem;
+  max-width: 40ch;
+  color: var(--text-muted);
+}
+
+.cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.cta__mail {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.cta__mail:hover {
+  color: var(--text);
+}
+
+/* ===== components/footer.css ===== */
+.site-footer {
+  padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+  background: var(--bg-raised);
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem 4rem;
+}
+
+.site-footer__about {
+  flex: 1 1 260px;
+  max-width: 340px;
+}
+
+.site-footer__about p {
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.site-footer__col h2 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.site-footer__col ul {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.625rem;
+}
+
+.site-footer__col a {
+  color: var(--text-muted);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.site-footer__col a:hover {
+  color: var(--text);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  font-size: 0.875rem;
+  color: var(--text-faint);
+}
+
+/* ===== components/header.css ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  view-transition-name: site-header; /* header stays put while pages change */
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand svg {
+  flex: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.site-nav__list a {
+  position: relative;
+  padding: 0.5rem 0;
+  font-size: 0.96875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.site-nav__list a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.125rem;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.site-nav__list a:hover,
+.site-nav__list a[aria-current='page'] {
+  color: var(--text);
+}
+
+.site-nav__list a:hover::after,
+.site-nav__list a[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+/* Menu button: only shown on small screens */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-1);
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+}
+
+.nav-toggle__bars {
+  position: relative;
+  transition: background-color var(--dur-fast);
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.nav-toggle__bars::before {
+  top: -6px;
+}
+
+.nav-toggle__bars::after {
+  top: 6px;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__bars {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: var(--gutter);
+    right: var(--gutter);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    background: var(--bg-raised);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity var(--dur) var(--ease-out),
+      transform var(--dur) var(--ease-out),
+      visibility 0s linear var(--dur);
+  }
+
+  .site-nav[data-open='true'] {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-nav__list a {
+    display: block;
+    padding: 0.875rem 0.25rem;
+    font-size: 1.125rem;
+  }
+
+  .site-nav__list a::after {
+    display: none;
+  }
+}
+
+/* ===== components/mascot.css ===== */
+/* The GoMeta cursor mascot and its speech bubble.
+   Markup: partials/mascot.html   Behaviour: js/modules/mascot/
+
+   How it works: the mascot is placed (by JS) on the top edge of a "spot", any element marked
+   data-mascot-spot. It sits BEHIND the spot (spots get z-index 2, the mascot 1), and slides up
+   from behind the edge to peek out, wave, or stand on top. */
+
+[data-mascot-spot] {
+  position: relative;
+  z-index: 2;
+}
+
+.mascot-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.mascot-layer[hidden] {
+  display: none;
+}
+
+/* ---------- the character ---------- */
+
+.mascot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 64px;
+  pointer-events: none;
+  transform: translateY(14%); /* hidden: fully behind the spot */
+  transition: transform 380ms var(--ease-in);
+}
+
+.mascot[data-state='peek'] {
+  transform: translateY(-50%); /* head, eyes and one hand above the edge */
+  transition: transform 560ms var(--ease-spring);
+}
+
+.mascot[data-state='open'] {
+  transform: translateY(-96.7%); /* standing on the edge */
+  transition: transform 620ms var(--ease-spring);
+}
+
+.mascot[data-state='open'][data-pose='hover'] {
+  transform: translateY(-116%); /* floating just above it, no feet */
+}
+
+.mascot__btn {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.mascot[data-state='peek'] .mascot__btn,
+.mascot[data-state='open'] .mascot__btn {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.mascot__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mascot[data-pose='hover'] .m-legs {
+  display: none;
+}
+
+.m-body {
+  fill: var(--accent);
+}
+
+.m-arm,
+.m-leg {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+.m-hand,
+.m-shoe,
+.m-eye-white {
+  fill: #fff;
+}
+
+.m-pupil {
+  fill: #0e1116;
+  transform: translate(calc(var(--lx, 0) * 1px), calc(var(--ly, 0) * 1px));
+}
+
+.m-mouth {
+  fill: none;
+  stroke: #0e1116;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* ---------- life ---------- */
+
+.m-arm-r {
+  transform-box: view-box;
+  transform-origin: 41px 33px;
+}
+
+.m-arm-l {
+  transform-box: view-box;
+  transform-origin: 9px 38px;
+}
+
+.m-torso {
+  transform-box: view-box;
+  transform-origin: 30px 62px;
+}
+
+.m-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: m-blink 5.5s ease-in-out 1.5s infinite;
+}
+
+.mascot[data-state='peek'] .m-torso,
+.mascot[data-state='open'] .m-torso {
+  animation: m-breathe 3.6s ease-in-out infinite;
+}
+
+.mascot[data-state='open'][data-pose='hover'] .mascot__btn {
+  animation: m-float 2.6s ease-in-out infinite;
+}
+
+/* waving and shrugging are triggered by JS through data-act */
+.mascot[data-act='wave'] .m-arm-r {
+  animation: m-wave 1.8s ease-in-out both;
+}
+
+.mascot[data-act='shrug'] .m-arm-r {
+  animation: m-shrug-right 2.1s ease-in-out both;
+}
+
+.mascot[data-act='shrug'] .m-arm-l {
+  animation: m-shrug-left 2.1s ease-in-out both;
+}
+
+@keyframes m-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes m-breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.01, 1.022);
+  }
+}
+
+@keyframes m-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes m-wave {
+  0% {
+    transform: rotate(0);
+  }
+  12% {
+    transform: rotate(-100deg);
+  }
+  26% {
+    transform: rotate(-78deg);
+  }
+  40% {
+    transform: rotate(-104deg);
+  }
+  54% {
+    transform: rotate(-78deg);
+  }
+  68% {
+    transform: rotate(-102deg);
+  }
+  84% {
+    transform: rotate(-100deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes m-shrug-right {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  72% {
+    transform: rotate(-55deg);
+  }
+}
+
+@keyframes m-shrug-left {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  72% {
+    transform: rotate(55deg);
+  }
+}
+
+/* ---------- speech bubble ---------- */
+
+.mascot-bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 45;
+  width: min(300px, calc(100vw - 24px));
+  padding: 1.25rem 1.25rem 1.15rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface-3);
+  box-shadow: 0 20px 48px -20px rgba(0, 0, 0, 0.65);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  transform-origin: bottom left;
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 340ms var(--ease-spring);
+}
+
+.mascot-bubble[hidden] {
+  display: none;
+}
+
+.mascot-bubble[data-side='left'] {
+  transform-origin: bottom right;
+}
+
+.mascot-bubble.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* little pointer towards the mascot */
+.mascot-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.mascot-bubble[data-side='right']::after {
+  left: -6px;
+}
+
+.mascot-bubble[data-side='left']::after {
+  right: -6px;
+}
+
+.mascot-bubble__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--text-faint);
+  transition:
+    background-color var(--dur-fast),
+    color var(--dur-fast);
+}
+
+.mascot-bubble__close:hover {
+  background: var(--surface-1);
+  color: var(--text);
+}
+
+.mascot-bubble__title {
+  padding-right: 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.mascot-bubble__line {
+  margin: 0.5rem 0 1.1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* On phones the bubble becomes a sheet at the bottom of the screen */
+@media (max-width: 600px) {
+  .mascot-bubble {
+    position: fixed;
+    top: auto !important;
+    right: 12px;
+    bottom: 12px;
+    left: 12px !important;
+    width: auto;
+    transform-origin: bottom center;
+  }
+
+  .mascot-bubble::after {
+    display: none;
+  }
+}
+
+/* ===== components/page-hero.css ===== */
+/* Intro block at the top of inner pages (Web, Apps, AI & Software, Work, Contact) */
+
+.page-hero {
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.page-hero__title {
+  margin-top: 1.5rem;
+  max-width: 18ch;
+  font-size: var(--fs-h1);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.page-hero__lead {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+  margin-top: 2.25rem;
+}
+
+.callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: var(--radius-xl);
+  background: var(--accent-soft);
+}
+
+.callout__title {
+  max-width: 26ch;
+  font-size: 1.5rem;
+}
+
+.callout__text {
+  margin-top: 0.5rem;
+  max-width: 52ch;
+  color: var(--text-muted);
+}
+
+/* ===== components/project.css ===== */
+/* Project cards. Standard grid on the Work page, compact two-column list on the home page. */
+
+.projects {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition:
+    transform var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.project:hover {
+  transform: translateY(-3px);
+}
+
+.project__thumb {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+}
+
+.project__thumb--b {
+  background: var(--surface-2);
+}
+
+.project__thumb--c {
+  background: var(--surface-3);
+}
+
+.project__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project__placeholder {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.project__kind {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.project__title {
+  margin-top: 0.375rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.project__outcome {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.project__visit {
+  display: inline-block;
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+/* Compact variant (home page): small thumbnail beside the text, two columns */
+.projects--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects--compact .project {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-raised);
+}
+
+.projects--compact .project:hover {
+  background: var(--surface-1);
+}
+
+.projects--compact .project__thumb {
+  flex: 0 0 clamp(120px, 16vw, 176px);
+}
+
+.projects--compact .project__body {
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .projects--compact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .projects--compact .project {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projects--compact .project__thumb {
+    flex: none;
+  }
+}
+
+/* ===== components/reveal.css ===== */
+/* Scroll reveal: add class "reveal" to an element; main.js adds "is-visible" when it enters the screen.
+   Stagger siblings with style="--i:1", "--i:2", ... Without JavaScript everything simply shows. */
+
+.js .reveal:not(.is-visible) {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: reveal-in var(--dur-slow) var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal:not(.is-visible) {
+    opacity: 1;
+  }
+}
+
+/* ===== components/transitions.css ===== */
+/* Page-to-page transitions.
+   Modern browsers: the View Transitions API animates between real pages (header stays in place).
+   Older browsers: main.js fades the page out on click, and the new page fades in (class "no-vt"). */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: vt-out 220ms var(--ease-in) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-in 520ms var(--ease-out) both;
+}
+
+@keyframes vt-out {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+/* Fallback */
+.no-vt .page-main {
+  animation: vt-in 520ms var(--ease-out) both;
+}
+
+.no-vt.is-leaving .page-main {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 220ms var(--ease-in),
+    transform 220ms var(--ease-in);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
