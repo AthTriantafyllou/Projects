@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Tic Tac Toe - Local</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../js/mega-tictactoe.js"></script>
+</head>
+<body>
+  <!-- Exit button -->
+  <button id="exitBtn" class="exit-btn">EXIT</button>
+
+  <!-- Main container -->
+  <div class="mega-container">
+    <!-- 3x3 mega grid -->
+    <div class="mega-grid">
+      <!-- Each sub-board -->
+      <div class="board" data-board="0"></div>
+      <div class="board" data-board="1"></div>
+      <div class="board" data-board="2"></div>
+      <div class="board" data-board="3"></div>
+      <div class="board" data-board="4"></div>
+      <div class="board" data-board="5"></div>
+      <div class="board" data-board="6"></div>
+      <div class="board" data-board="7"></div>
+      <div class="board" data-board="8"></div>
+    </div>
+
+    <!-- Turn indicator -->
+    <div id="turnIndicator" class="turn-text">Turn: Player 1 (X)</div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <div class="score-box">
+        <p>Player 1</p>
+        <p id="scoreX">0</p>
+      </div>
+      <div class="score-box">
+        <p>Tie</p>
+        <p id="scoreTie">0</p>
+      </div>
+      <div class="score-box">
+        <p>Player 2</p>
+        <p id="scoreO">0</p>
+      </div>
+    </div>
+
+    <!-- Reset button -->
+    <button id="resetBtn" class="reset-btn">RESET</button>
+  </div>
+
+  <!-- Winner Popup -->
+<div id="winnerPopup" class="popup hidden">
+  <div class="popup-content">
+    <span id="closeWinnerPopup" class="close">&times;</span>
+    <h2 id="winnerMessage">Player X wins!</h2>
+    <button id="winnerOkBtn">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

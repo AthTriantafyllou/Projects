@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1.6;
+  background: #eeeeee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======================================================
+   LANDING PAGE WRAPPER
+====================================================== */
+
+.games-page {
+  min-height: calc(100vh - 44px); /* leave room for footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 80px;
+}
+
+/* ======================================================
+   GAMES GRID
+====================================================== */
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.game-card {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  background: #ebebeb;
+  border: 1.5px solid rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  box-shadow:
+    -2px 8px 15px rgb(60 55 55 / 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    -2px 8px 15px rgb(0 24 127 / 19%),
+    inset 2px -4px 8px rgb(22 22 22 / 28%);
+}
+
+.game-link {
+  display: block;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-media {
+  background: transparent;
+  border: 1px solid #000eaa;
+  box-shadow: -2px 2px 10px rgb(0 4 165 / 14%);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.game-media img {
+  width: 100%;
+  border-radius: 12px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.game-body {
+  padding-top: 16px;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.game-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.game-card.is-disabled {
+  opacity: 0.75;
+}
+
+.game-card.is-disabled:hover {
+  transform: none;
+  cursor: default;
+}
+
+.game-card.is-disabled .game-link {
+  cursor: default;
+}
+
+/* ======================================================
+   ACTION BUTTONS (reserved for future use)
+====================================================== */
+
+.games-actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.games-btn {
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.games-btn.primary {
+  background: #9c77ff;
+  color: white;
+}
+
+.games-btn.primary:hover {
+  background: #8460f0;
+  transform: translateY(-2px);
+}
+
+.games-btn.secondary {
+  background: #4b6ef5;
+  color: white;
+}
+
+.games-btn.secondary:hover {
+  background: #3454d1;
+  transform: translateY(-2px);
+}
+
+.games-btn.outline {
+  background: transparent;
+  color: #222;
+  border: 2px solid #222;
+}
+
+.games-btn.outline:hover {
+  background: #222;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ======================================================
+   BACK TO HOME BUTTON (used by info pages)
+====================================================== */
+
+.back-home-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #9c77ff;
+  color: white;
+  text-decoration: none;
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  z-index: 999;
+}
+
+.back-home-btn:hover {
+  background: #8460f0;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .game-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .games-page {
+    padding: 40px 16px 80px;
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Play - Ultimate Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="howto-container">
+    <h1>🧠 How to Play Tic-Tac-Toe (Local Mode)</h1>
+
+    <div class="howto-content">
+      <h3>🧾 Overview</h3>
+        <br>
+
+      Ultimate Tic-Tac-Toe is an advanced version of classic Tic-Tac-Toe. 
+      Instead of one 3×3 board, you play on <strong>nine smaller Tic-Tac-Toe boards</strong> arranged in a 3×3 grid. 
+      Each small board represents one cell of the larger “mega” board.</p>
+<br>
+
+      <h3>🎯 Objective</h3>
+      
+      <p>Win the game by claiming <strong>three large boards in a row</strong> — horizontally, vertically, or diagonally.</p>
+<br>
+
+      <h3>⚙️ Setup</h3>
+      
+      <ul>
+        <li>Player 1 uses <strong>X</strong>.</li>
+        <li>Player 2 uses <strong>O</strong>.</li>
+        <li>The game begins with all nine small boards empty.</li>
+      </ul>
+<br>
+
+      <h3>🕹️ Gameplay</h3>
+    
+      <ol>
+        <li><strong>Starting move:</strong> Player 1 can place an X anywhere on the entire grid.</li>
+        <li><strong>Directing the next move:</strong> The cell chosen determines <em>which board</em> the next player must play in.
+          <br>Example: If you place your mark in the <em>top-right cell</em> of a small board, your opponent must play in the <em>top-right large board</em>.
+        </li>
+        <li><strong>Winning a small board:</strong> Win a small board by completing three in a row (horizontal, vertical, or diagonal). 
+          The board then shows a large faded X or O and becomes locked.
+        </li>
+        <li><strong>If the directed board is already complete:</strong> If the target board is already won or tied, 
+          the next player may play <em>anywhere</em> on the grid that’s still open.</li>
+        <li><strong>Winning the game:</strong> Win the entire match by winning three large boards in a row on the mega grid.</li>
+        <li><strong>Ties:</strong> If all large boards are full with no winner, the match ends in a tie.</li>
+      </ol>
+<br>
+
+      <h3>💡 Additional Notes</h3>
+    
+      <ul>
+        <li>The <strong>active board</strong> (where the next move must be played) is highlighted with a red outline.</li>
+        <li>Boards that have been won appear <strong>faded</strong> with a large X or O overlay.</li>
+        <li>You can <strong>reset</strong> the game at any time to start a new round.</li>
+        <li>The <strong>scoreboard</strong> keeps track of total wins and ties across rounds.</li>
+      </ul>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='../games/game2.html'">BACK</button>
+  </div>
+</body>
+</html>
