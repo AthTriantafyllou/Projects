@@ -1,0 +1,1 @@
+This is the raw code of the web app I have created to play around. A simple habit tracking tool that turns boring repetitions into a fun little game so you can visualize your progress and have something to remind you about them.
