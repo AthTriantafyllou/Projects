@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Αρχική σελίδα | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+    <main class="dashboard">
+
+        <header class="dashboard-header">
+            <div>
+                <h1 class="brand">LAN Video Manager</h1>
+
+                <p class="welcome">
+                    Καλώς ήρθες,
+                    <strong><%= user.username %></strong>!
+                </p>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+
+            <% if (user.role === 'user') { %>
+
+                <h2>Αρχική σελίδα</h2>
+
+                <p class="section-description">
+                    Τι θέλεις να κάνεις σήμερα;
+                </p>
+
+                <div class="actions">
+
+                    <section class="action-card">
+                        <h3>📁 Το ιστορικό μου</h3>
+
+                        <p>
+                            Δες τις υποβολές βίντεο που έχεις κάνει
+                            και την κατάστασή τους.
+                        </p>
+
+                        <a class="button" href="/history">
+                            Άνοιγμα ιστορικού
+                        </a>
+                    </section>
+
+                    <section class="action-card">
+                        <h3>📤 Υποβολή βίντεο</h3>
+
+                        <p>
+                            Συμπλήρωσε τα απαραίτητα στοιχεία
+                            και υπέβαλε ένα νέο βίντεο.
+                        </p>
+
+                        <a class="button" href="/upload">
+                            Νέα υποβολή
+                        </a>
+                    </section>
+
+                </div>
+
+            <% } else if (user.role === 'admin') { %>
+
+                <h2>Περιβάλλον διαχειριστή</h2>
+
+                <p class="section-description">
+                    Διαχείριση και έλεγχος των υποβολών βίντεο.
+                </p>
+
+                <div class="actions">
+
+                    <section class="action-card">
+                        <h3>📋 Διαχείριση υποβολών</h3>
+
+                        <p>
+                            Δες τις εκκρεμείς υποβολές, φιλτράρισε
+                            ανά χρήστη και διαχειρίσου τα αρχεία.
+                        </p>
+
+                        <a class="button" href="/admin">
+                            Άνοιγμα διαχείρισης
+                        </a>
+                    </section>
+
+                </div>
+
+            <% } else if (user.role === 'safety_admin') { %>
+
+                <h2>Περιβάλλον ασφαλείας</h2>
+
+                <p class="section-description">
+                    Έλεγχος της κατάστασης των μεταφορτώσεων
+                    και άμεση ενεργοποίηση ή απενεργοποίηση του Freeze.
+                </p>
+
+                <div class="actions">
+
+                    <section class="action-card">
+                        <h3>🛡️ Safety Zone</h3>
+
+                        <p>
+                            Έλεγξε αν οι μεταφορτώσεις είναι ενεργές
+                            και διαχειρίσου το Emergency Freeze.
+                        </p>
+
+                        <a class="button" href="/safety-zone">
+                            Άνοιγμα Safety Zone
+                        </a>
+                    </section>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+        <footer class="logout">
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <button type="submit">
+                    Αποσύνδεση
+                </button>
+            </form>
+        </footer>
+
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Διαχείριση υποβολών | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<body>
+    <main class="admin-page">
+
+        <header class="admin-header">
+            <div>
+                <h1>Πίνακας διαχείρισης</h1>
+
+                <p>
+                    Συνδεδεμένος admin:
+                    <strong class="admin-user"><%= user.username %></strong>
+                </p>
+
+                <a class="admin-back" href="/dashboard">
+                    ← Επιστροφή στο dashboard
+                </a>
+
+                <button
+                    type="button"
+                    class="admin-users-open"
+                    id="openUsersManager"
+                >
+                   Διαχείριση χρηστών
+                </button>
+
+            </div>
+
+            <section class="admin-summary">
+                <span class="admin-summary-label">Εκκρεμείς υποβολές</span>
+                <strong class="admin-summary-count"><%= pendingCount %></strong>
+            </section>
+        </header>
+
+
+
+        <!-- Users Manager Modal -->
+        <div
+            class="users-modal"
+            id="usersManagerModal"
+            hidden
+        >
+            <div class="users-modal-backdrop" data-close-users-modal></div>
+
+            <section
+                class="users-modal-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="usersModalTitle"
+                tabindex="-1"
+            >
+                <header class="users-modal-header">
+                    <div>
+                        <h2 id="usersModalTitle">Διαχείριση χρηστών</h2>
+                        <p>Δημιουργία, επεξεργασία και διαγραφή λογαριασμών.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="users-modal-close"
+                        data-close-users-modal
+                        aria-label="Κλείσιμο"
+                    >×</button>
+                </header>
+
+                <p id="usersManagerMessage" class="users-manager-message" role="status" aria-live="polite"></p>
+
+                <div class="users-manager-toolbar">
+                    <button type="button" id="addNewUserButton">
+                        + Add New User
+                    </button>
+                </div>
+
+                <section class="users-manager-create" id="createUserSection" hidden>
+                    <h3>Νέος χρήστης</h3>
+
+                    <form id="createUserForm">
+                        <input type="hidden" name="CSRFToken" value="<%= csrfToken %>">
+
+                        <label>
+                            Username
+                            <input
+                                type="text"
+                                name="username"
+                                minlength="3"
+                                maxlength="50"
+                                pattern="[a-zA-Z0-9_-]+"
+                                autocomplete="off"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            Password
+                            <input
+                                type="password"
+                                name="password"
+                                minlength="3"
+                                maxlength="200"
+                                autocomplete="new-password"
+                                required
+                            >
+                        </label>
+
+                        <label>
+                            Τύπος χρήστη
+                            <select name="role" required>
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                                <option value="safety_admin">Safety Admin</option>
+                            </select>
+                        </label>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </section>
+
+                <section class="users-manager-list">
+                    <h3>Χρήστες</h3>
+                    <div id="usersManagerList">
+                        <p>Φόρτωση χρηστών…</p>
+                    </div>
+                </section>
+            </section>
+        </div>
+
+
+        <section class="admin-section">
+            <h2>Εκκρεμείς υποβολές</h2>
+
+            <p class="admin-section-description">
+                Προβολή και διαχείριση των βίντεο που έχουν υποβληθεί.
+            </p>
+
+            <form class="admin-filter" action="/admin" method="GET">
+                <div class="admin-filter-group">
+                    <label for="user">Φιλτράρισμα ανά χρήστη</label>
+
+                    <select name="user" id="user">
+                        <option
+                            value=""
+                            <%= selectedUser === '' ? 'selected' : '' %>
+                        >
+                            Όλοι οι χρήστες
+                        </option>
+
+                        <% users.forEach((item) => { %>
+                            <option
+                                value="<%= item.id %>"
+                                <%= selectedUser === String(item.id) ? 'selected' : '' %>
+                            >
+                                <%= item.username %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+
+                <button type="submit">Εφαρμογή φίλτρου</button>
+            </form>
+
+            <div class="admin-table-panel">
+
+                <% if (submissions.length === 0) { %>
+
+                    <div class="admin-empty">
+                        <h3>Δεν υπάρχουν εκκρεμείς υποβολές</h3>
+                        <p>
+                            Δεν βρέθηκαν υποβολές για το επιλεγμένο φίλτρο.
+                        </p>
+                    </div>
+
+                <% } else { %>
+
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Χρήστης</th>
+                                    <th>Κατηγορία</th>
+                                    <th>Περιγραφή</th>
+                                    <th>Ημερομηνία συμβάντος</th>
+                                    <th>Ημερομηνία υποβολής</th>
+                                    <th>Μέγεθος</th>
+                                    <th>Ενέργειες</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% submissions.forEach((submission) => { %>
+                                    <tr>
+                                        <td class="admin-id">
+                                            <%= submission.id %>
+                                        </td>
+
+                                        <td class="admin-username">
+                                            <%= submission.username %>
+                                        </td>
+
+                                        <td class="admin-category">
+                                            <%= submission.category %>
+                                        </td>
+
+                                        <td class="admin-description"><%= submission.description %></td>
+
+                                        <td>
+                                            <%= submission.event_time || '—' %>
+                                        </td>
+
+                                        <td>
+                                            <%= submission.created_at %>
+                                        </td>
+
+                                        <td class="admin-file-size">
+                                            <%= (submission.file_size / (1024 * 1024)).toFixed(2) %> MB
+                                        </td>
+
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a
+                                                    class="admin-download-button"
+                                                    href="/admin/submissions/<%= submission.id %>/download"
+                                                >
+                                                    Download ZIP
+                                                </a>
+
+                                                <form
+                                                    action="/admin/submissions/<%= submission.id %>/delete"
+                                                    method="POST"
+                                                    onsubmit="return confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την υποβολή και το βίντεό της;');"
+                                                >
+                                                    <input
+                                                        type="hidden"
+                                                        name="CSRFToken"
+                                                        value="<%= csrfToken %>"
+                                                    >
+
+                                                    <button
+                                                        class="admin-delete-button"
+                                                        type="submit"
+                                                    >
+                                                        Διαγραφή
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <% } %>
+
+            </div>
+        </section>
+
+        <footer class="admin-footer">
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <button class="admin-logout" type="submit">
+                    Αποσύνδεση
+                </button>
+            </form>
+        </footer>
+
+    </main>
+
+
+
+    <script src="/js/admin-users.js" defer></script>
+
+</body>
+</html>
+

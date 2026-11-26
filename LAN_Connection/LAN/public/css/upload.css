@@ -1,0 +1,150 @@
+
+/* Upload page */
+
+.upload-page {
+    width: min(100% - 32px, 850px);
+    margin: 40px auto;
+}
+
+.upload-header {
+    margin-bottom: 26px;
+}
+
+.upload-header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+.upload-header p {
+    margin: 0;
+}
+
+.upload-user {
+    color: var(--accent-hover);
+    font-weight: 600;
+}
+
+.upload-back {
+    display: inline-flex;
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+.upload-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(
+        145deg,
+        var(--surface-raised),
+        var(--surface)
+    );
+    box-shadow: var(--shadow);
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.upload-field label {
+    margin-bottom: 8px;
+}
+
+.upload-field textarea {
+    display: block;
+    min-height: 130px;
+    resize: vertical;
+}
+
+.upload-field select {
+    cursor: pointer;
+}
+
+.upload-field input[type="datetime-local"] {
+    max-width: 100%;
+}
+
+.upload-field input[type="file"] {
+    padding: 14px;
+    border: 1px dashed #77796f;
+    background: rgba(34, 40, 49, 0.65);
+    cursor: pointer;
+}
+
+.upload-field input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--accent-text);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.upload-field input[type="file"]::file-selector-button:hover {
+    background: var(--accent-hover);
+}
+
+.upload-hint {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+}
+
+.upload-required-note {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.upload-submit {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+}
+
+.upload-error {
+    margin: 0 0 20px;
+    padding: 12px 14px;
+    border: 1px solid rgba(217, 108, 108, 0.5);
+    border-radius: var(--radius-small);
+    background: rgba(217, 108, 108, 0.12);
+    color: #ffaaaa;
+    overflow-wrap: anywhere;
+}
+
+.upload-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.upload-logout {
+    border-color: var(--border);
+    background: transparent;
+    color: var(--text);
+}
+
+.upload-logout:hover {
+    border-color: var(--danger);
+    background: var(--danger);
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .upload-page {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .upload-card {
+        padding: 20px;
+    }
+
+    .upload-form {
+        gap: 20px;
+    }
+}
+

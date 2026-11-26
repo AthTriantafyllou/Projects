@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Σύνδεση | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-card">
+
+            <h1 class="login-brand">LAN Video Manager</h1>
+            <p class="login-subtitle">Σύνδεση χρήστη</p>
+
+            <% if (error) { %>
+                <p class="login-error" role="alert"><%= error %></p>
+            <% } %>
+
+            <form class="login-form" action="/login" method="POST">
+
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <div class="login-field">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        autocomplete="username"
+                        maxlength="50"
+                        required
+                        autofocus
+                    >
+                </div>
+
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="current-password"
+                        maxlength="200"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Σύνδεση</button>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+

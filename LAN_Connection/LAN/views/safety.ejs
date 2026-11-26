@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Safety Zone | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/safety.css">
+</head>
+
+<body>
+    <main class="safety-page">
+
+        <header class="safety-header">
+            <h1>Safety Zone</h1>
+
+            <p>
+                Συνδεδεμένος ως:
+                <strong class="safety-user"><%= user.username %></strong>
+            </p>
+
+            <a href="/dashboard">← Επιστροφή στο dashboard</a>
+        </header>
+
+        <section class="safety-panel">
+            <h2>Κατάσταση μεταφορτώσεων</h2>
+
+            <p class="safety-description">
+                Από εδώ μπορείς να ελέγχεις αν επιτρέπονται οι νέες
+                μεταφορτώσεις βίντεο στο σύστημα.
+            </p>
+
+            <% if (uploadsFrozen) { %>
+
+                <div class="safety-status safety-status-frozen">
+                    <span class="safety-status-indicator"></span>
+                    <span>FREEZE ΕΝΕΡΓΟ</span>
+                </div>
+
+                <p class="safety-description">
+                    Οι νέες μεταφορτώσεις βίντεο είναι προσωρινά απενεργοποιημένες.
+                </p>
+
+                <form
+                    class="safety-action-form"
+                    action="/safety-zone/unfreeze"
+                    method="POST"
+                    onsubmit="return confirm('Θέλεις να επιτρέψεις ξανά τις μεταφορτώσεις βίντεο;');"
+                >
+                    <input
+                        type="hidden"
+                        name="CSRFToken"
+                        value="<%= csrfToken %>"
+                    >
+
+                    <button
+                        class="safety-action-button safety-unfreeze-button"
+                        type="submit"
+                    >
+                        Απενεργοποίηση Freeze
+                    </button>
+                </form>
+
+            <% } else { %>
+
+                <div class="safety-status safety-status-active">
+                    <span class="safety-status-indicator"></span>
+                    <span>FREEZE ΑΝΕΝΕΡΓΟ</span>
+                </div>
+
+                <p class="safety-description">
+                    Οι μεταφορτώσεις βίντεο επιτρέπονται κανονικά.
+                </p>
+
+                <form
+                    class="safety-action-form"
+                    action="/safety-zone/freeze"
+                    method="POST"
+                    onsubmit="return confirm('ΠΡΟΣΟΧΗ: Θέλεις να σταματήσεις τις νέες μεταφορτώσεις βίντεο;');"
+                >
+                    <input
+                        type="hidden"
+                        name="CSRFToken"
+                        value="<%= csrfToken %>"
+                    >
+
+                    <button
+                        class="safety-action-button safety-freeze-button"
+                        type="submit"
+                    >
+                        Ενεργοποίηση Emergency Freeze
+                    </button>
+                </form>
+
+            <% } %>
+        </section>
+
+        <footer class="safety-footer">
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <button class="safety-logout" type="submit">
+                    Αποσύνδεση
+                </button>
+            </form>
+        </footer>
+
+    </main>
+</body>
+</html>
+

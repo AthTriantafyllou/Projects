@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Υποβολή βίντεο | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+
+<body>
+    <main class="upload-page">
+
+        <header class="upload-header">
+            <h1>Υποβολή βίντεο</h1>
+
+            <p>
+                Συνδεδεμένος χρήστης:
+                <strong class="upload-user"><%= user.username %></strong>
+            </p>
+
+            <a class="upload-back" href="/dashboard">
+                ← Επιστροφή στην αρχική σελίδα
+            </a>
+        </header>
+
+        <section class="upload-card">
+
+            <% if (error) { %>
+                <p class="upload-error" role="alert"><%= error %></p>
+            <% } %>
+
+            <form
+                class="upload-form"
+                action="/upload"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <div class="upload-field">
+                    <label for="category">Κατηγορία *</label>
+
+                    <select id="category" name="category" required>
+                        <option value="">-- Επίλεξε κατηγορία --</option>
+                        <option value="Λάθος κατηγορία">Λάθος κατηγορία</option>
+                        <option value="Καμία κατηγορία - non detected">Καμία κατηγορία - non detected</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="upload-field">
+                    <label for="description">Περιγραφή *</label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        maxlength="2000"
+                        rows="5"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="upload-field">
+                    <label for="event_time">
+                        Ώρα συμβάντος (προαιρετικό)
+                    </label>
+
+                    <input
+                        type="datetime-local"
+                        id="event_time"
+                        name="event_time"
+                    >
+                </div>
+
+                <div class="upload-field">
+                    <label for="video">Αρχείο βίντεο *</label>
+
+                    <input
+                        type="file"
+                        id="video"
+                        name="video"
+                        accept="video/*"
+                        required
+                    >
+
+                    <p class="upload-hint">
+                        Μέγιστο μέγεθος αρχείου: 200 MB.
+                    </p>
+                </div>
+
+                <p class="upload-required-note">
+                    * Υποχρεωτικά πεδία.
+                </p>
+
+                <button class="upload-submit" type="submit">
+                    Συνέχεια
+                </button>
+            </form>
+
+        </section>
+
+        <footer class="upload-footer">
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <button class="upload-logout" type="submit">
+                    Αποσύνδεση
+                </button>
+            </form>
+        </footer>
+
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Το ιστορικό μου | LAN Video Manager</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/history.css">
+</head>
+
+<body>
+    <main class="history-page">
+
+        <header class="history-header">
+            <h1>Το ιστορικό μου</h1>
+
+            <p>
+                Συνδεδεμένος χρήστης:
+                <strong class="history-user"><%= user.username %></strong>
+            </p>
+
+            <a class="history-back" href="/dashboard">
+                ← Επιστροφή στην αρχική σελίδα
+            </a>
+        </header>
+
+        <section class="history-panel">
+
+            <% if (submissions.length === 0) { %>
+
+                <div class="history-empty">
+                    <h2>Δεν υπάρχουν υποβολές</h2>
+                    <p>Δεν έχεις υποβάλει ακόμη κάποιο βίντεο.</p>
+                </div>
+
+            <% } else { %>
+
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Ημερομηνία</th>
+                                <th>Κατηγορία</th>
+                                <th>Περιγραφή</th>
+                                <th>Ώρα συμβάντος</th>
+                                <th>Κατάσταση</th>
+                                <th>Ενέργειες</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% submissions.forEach((submission) => { %>
+                                <tr>
+                                    <td><%= submission.created_at %></td>
+
+                                    <td><%= submission.category %></td>
+
+                                    <td class="history-description"><%= submission.description %></td>
+
+                                    <td>
+                                        <%= submission.event_time || 'Δεν δηλώθηκε' %>
+                                    </td>
+
+                                    <td>
+                                        <% if (submission.status === 'pending') { %>
+                                            <span class="history-status history-status-pending">
+                                                Σε εκκρεμότητα
+                                            </span>
+                                        <% } else { %>
+                                            <span class="history-status history-status-deleted">
+                                                Διαγραμμένο
+                                            </span>
+                                        <% } %>
+                                    </td>
+
+                                    <td>
+                                        <% if (submission.status === 'pending') { %>
+                                            <form
+                                                class="history-delete-form"
+                                                action="/history/<%= submission.id %>/delete"
+                                                method="POST"
+                                                onsubmit="return confirm('Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτή την υποβολή;');"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="CSRFToken"
+                                                    value="<%= csrfToken %>"
+                                                >
+
+                                                <button
+                                                    class="history-delete-button"
+                                                    type="submit"
+                                                >
+                                                    Διαγραφή
+                                                </button>
+                                            </form>
+                                        <% } else { %>
+                                            —
+                                        <% } %>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+
+            <% } %>
+
+        </section>
+
+        <footer class="history-footer">
+            <form action="/logout" method="POST">
+                <input
+                    type="hidden"
+                    name="CSRFToken"
+                    value="<%= csrfToken %>"
+                >
+
+                <button class="history-logout" type="submit">
+                    Αποσύνδεση
+                </button>
+            </form>
+        </footer>
+
+    </main>
+</body>
+</html>
+
