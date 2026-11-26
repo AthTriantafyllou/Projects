@@ -1,4 +1,4 @@
-You can find a the visual presentation of my projects [here.](https://thanfyllou.eu/cv)
+LIVE WEBSITES:
 
-Here you can find the raw code of my top projects. I will try to keep updating frequently so its not missing any major update.
+You can check out the live products here:
 
